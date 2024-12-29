@@ -6,7 +6,7 @@ AUTO_TRA ~mkhiinbg2/translations/%s~
 
 
 LANGUAGE ~English~
-         ~english~   
+         ~english~
          ~mkhiinbg2/translations/english/JournalEntries.tra~
 
 BEGIN ~M'Khiin NPC for BG2EE~
@@ -15,16 +15,16 @@ REQUIRE_PREDICATE GAME_IS ~bg2ee~ ~This mod requires BG2EE~
 APPEND ~STATE.IDS~ ~0x80101FEF CD_STATE_NOTVALID~
 UNLESS ~CD_STATE_NOTVALID~
 
-ADD_JOURNAL TITLE (@100000) @100001 USING ~mkhiinbg2/translations/english/JournalEntries.tra~ 
+ADD_JOURNAL TITLE (@100000) @100001 USING ~mkhiinbg2/translations/english/JournalEntries.tra~
 
 // RELEASE THE GOBLINS - Add Goblin & M'Khiin animations to BG2EE
-COPY ~mkhiinbg2/animations~ ~override~ 
+COPY ~mkhiinbg2/animations~ ~override~
 
 // GRAB THE LOOT - Add BAMS from SoD (for items)
-COPY ~mkhiinbg2/bam~ ~override~ 
+COPY ~mkhiinbg2/bam~ ~override~
 
 // A DISTINCTIVE VOICE - Add M'Khiin's soundset
-COPY ~mkhiinbg2/sound~ ~override~ 
+COPY ~mkhiinbg2/sound~ ~override~
 
 // BEAR NECESSITIES - Add banter files for Wilson 
 ACTION_IF FILE_EXISTS_IN_GAME ~wilson.dlg~ THEN BEGIN
@@ -42,22 +42,23 @@ END
 // WE DON'T SPEAK COMMON - Add dialogues
 COMPILE EVALUATE_BUFFER ~mkhiinbg2/d/BFSMKB.d~
                         ~mkhiinbg2/d/BFSMK.d~
-						~mkhiinbg2/d/BFSMKP.d~
-						~mkhiinbg2/d/BFSMKJ.d~
-						~mkhiinbg2/d/BFSMK25.d~
-						~mkhiinbg2/d/BFSMK25P.d~
-						~mkhiinbg2/d/BFSMK25J.d~
-						~mkhiinbg2/d/BFSMKB25.d~
-						~mkhiinbg2/d/FATESP.d~
-						~mkhiinbg2/d/BFSGOB.d~
-						~mkhiinbg2/d/BFSGB2.d~
-						
+                        ~mkhiinbg2/d/BFSMKP.d~
+                        ~mkhiinbg2/d/BFSMKJ.d~
+                        ~mkhiinbg2/d/BFSMK25.d~
+                        ~mkhiinbg2/d/BFSMK25P.d~
+                        ~mkhiinbg2/d/BFSMK25J.d~
+                        ~mkhiinbg2/d/BFSMKB25.d~
+                        ~mkhiinbg2/d/FATESP.d~
+                        ~mkhiinbg2/d/BFSGOB.d~
+                        ~mkhiinbg2/d/BFSGB2.d~ 
+                        USING ~mkhiinbg2/translations/%LANGUAGE%/dialogue.tra~
+
 // CREATURES AND FEATURES - add creature file, edit scripts, sounds, etc
 /* Kin SOA creature */ 
-COPY ~mkhiinbg2/cre/BFSMK.cre~ ~override/BFSMK.cre~ 
+COPY ~mkhiinbg2/cre/BFSMK.cre~ ~override/BFSMK.cre~
 SAY NAME1 ~M'Khiin~
 SAY NAME2 ~M'Khiin~
-SAY INITIAL_MEETING ~~ [] 
+SAY INITIAL_MEETING ~~ []
 SAY MORALE ~No! NO! I won't, I won't!~ [BD67768]
 SAY HAPPY ~This is so much better than my old life.~ [BD67764] 
 SAY UNHAPPY_ANNOYED ~Take care. You're making bad decisions.~ [BD67765] 
@@ -295,4 +296,4 @@ When asked, the goblin  happily recounted her travels with <CHARNAME>, sharing h
 // BAEBG2
 BEGIN ~Crossmod with Baeloth for BG2~ 
 REQUIRE_COMPONENT ~0dbae.tp2~ ~0~ ~Baeloth for BG2 has to be installed.~
-COMPILE ~mkhiinbg2/crossmod/baebg2.d~ 
+COMPILE ~mkhiinbg2/crossmod/baebg2.d~ USING ~mkhiinbg2/translations/%LANGUAGE%/crossmod.tra~
