@@ -1,0 +1,11 @@
+IF
+Global("BFSNoblesSpawn","AR0704",0)
+InParty("BFSMK")
+!StateCheck("BFSMK",CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+CreateCreature("bfsnb1",[476.712],SW)   
+CreateCreature("bfsnb2",[444.723],NE) 
+SetGlobal("BFSNoblesSpawn","AR0704",1)
+Continue()
+END

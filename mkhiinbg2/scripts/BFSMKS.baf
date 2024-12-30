@@ -154,3 +154,26 @@ IF
   MoveToObject(Player1)
   Dialogue(Player1)
 END 
+
+/* Mithrest Inn */
+IF
+InParty(Myself)
+See(Player1)
+!StateCheck(Player1,CD_STATE_NOTVALID) 
+!StateCheck(Myself,CD_STATE_NOTVALID)
+AreaCheck("AR0704")           
+Global("BFSNoblesSpawn","AR0704",1)
+Global("BFSMithrestUnrest","GLOBAL",0)
+THEN
+RESPONSE #100
+SetGlobal("BFSMithrestUnrest","GLOBAL",1)
+END
+
+IF
+  Global("BFSMithrestUnrest","GLOBAL",1)
+ THEN
+ RESPONSE #100
+ ClearAllActions() 
+ StartCutSceneMode() 
+ StartCutScene("bfsinn") 
+END 

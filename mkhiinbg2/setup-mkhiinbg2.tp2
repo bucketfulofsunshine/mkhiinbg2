@@ -8,6 +8,7 @@ AUTO_TRA ~mkhiinbg2/translations/%s~
 LANGUAGE ~English~
          ~english~   
          ~mkhiinbg2/translations/english/JournalEntries.tra~
+		 ~mkhiinbg2/translations/english/cutscenes.tra~
 
 BEGIN ~M'Khiin NPC for BG2EE~
 REQUIRE_PREDICATE GAME_IS ~bg2ee~ ~This mod requires BG2EE~
@@ -123,8 +124,19 @@ WRITE_ASCII DIALOG ~BFSGB2~ #8
 COPY ~mkhiinbg2/cre/BFSGB3.cre~ ~override/BFSGB3.cre~ 
 WRITE_ASCII SCRIPT_OVERRIDE ~BFSGB3S~ #8
 WRITE_ASCII DEATHVAR ~BFSGB3~ #32
-WRITE_ASCII DIALOG ~BFSGB3~ #8
-	 
+
+
+/* mithrest nobles */
+COPY ~mkhiinbg2/cre/bfsnb1.cre~ ~override/bfsnb1.cre~ 
+WRITE_ASCII SCRIPT_OVERRIDE ~bfsnb1S~ #8
+WRITE_ASCII DEATHVAR ~bfsnb1~ #32
+WRITE_ASCII DIALOG ~bfsnb1~ #8
+
+COPY ~mkhiinbg2/cre/bfsnb2.cre~ ~override/bfsnb2.cre~ 
+WRITE_ASCII SCRIPT_OVERRIDE ~bfsnb2S~ #8
+WRITE_ASCII DEATHVAR ~bfsnb2~ #32
+WRITE_ASCII DIALOG ~bfsnb2~ #8
+ 
 /* goblin ghosts */ 	 
 COPY ~mkhiinbg2/cre/bdbgobg1.cre~ ~override/bdbgobg1.cre~ 
 COPY ~mkhiinbg2/cre/bdbgobg2.cre~ ~override/bdbgobg2.cre~ 
@@ -269,8 +281,12 @@ APPEND ~interdia.2da~ ~BFSMK BFSMKB BFSMKB25~ UNLESS ~BFSMK~
 
 // Scripts
 EXTEND_BOTTOM ~AR0701.bcs~   ~mkhiinbg2/scripts/AR0701.baf~
+EXTEND_BOTTOM ~AR0704.bcs~   ~mkhiinbg2/scripts/AR0704.baf~
 COMPILE EVALUATE_BUFFER ~mkhiinbg2/scripts/BFSMKS.baf~ 
-                        ~mkhiinbg2/scripts/BFSMK25S.baf~ 	
+                        ~mkhiinbg2/scripts/BFSMK25S.baf~ 
+						
+/* compile new mithrest cutscene */ 
+COMPILE ~mkhiinbg2/cutscenes/bfsinn.baf~ 						
 
 // Epilogues 
 EXTEND_TOP ~AR6200.bcs~ ~mkhiinbg2/scripts/AR6200.baf~

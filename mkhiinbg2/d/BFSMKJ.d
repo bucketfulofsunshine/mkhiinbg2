@@ -151,7 +151,7 @@ END
 IF ~~ BFSMk2.WeBuiltThisCityOnRockAndGnolls
 SAY ~Won't decide now. Too much blood still.~ 
 = ~...And we have a goal. Beholder needs to die first.~
-IF ~~ DO ~SetGlobal("BFSMk2Ghoul","GLOBAL",3)~ EXIT
+IF ~~ DO ~SetGlobal("BFSMk2Ghoul","GLOBAL",3) IncrementGlobal("BFSMk2GoblinInTheCity","GLOBAL",1)~ EXIT
 END
 
 // City Gates 
@@ -180,8 +180,9 @@ CHAIN AESOLD BFSMk2.GoldBribe
 ~A goblin walking freely is a security risk. My duty is to protect the citizens of Athkatla from such dangers.~
 == AESOLD ~But, mmm, my pay is on the lower end. For, let's say, five-hundred gold I will look the other way.~
 END
-++ ~I don't have that much on me.~ EXTERN AESOLD BFSMk2.GoldNotEnough
-++ ~Fine. Here you go.~ EXTERN AESOLD BFSMk2.GoldBribeWorked
++ ~!PartyGold(500)~ + ~I don't have that much on me.~ EXTERN AESOLD BFSMk2.GoldNotEnough
++ ~PartyGold(500)~ + ~That's an outrageous sum. I refuse!~ EXTERN AESOLD BFSMk2.GoldNotEnough
++ ~PartyGold(500)~ + ~Fine. Here you go.~ EXTERN AESOLD BFSMk2.GoldBribeWorked
 ++ ~*whispers* On second thought, M'Khiin, I prefer your plan.~ EXTERN BFSMKJ BFSMk2.GuardDistracted
 
 CHAIN AESOLD BFSMk2.GoldNotEnough
@@ -192,7 +193,7 @@ IF ~~ EXTERN BFSMKJ BFSMk2.GuardDistracted
 
 CHAIN AESOLD BFSMk2.GoldBribeWorked
 ~A pleasure doing business with you.~ 
-DO ~TakePartyGold(500)~
+DO ~TakePartyGold(500) IncrementGlobal("BFSMk2GoblinInTheCity","GLOBAL",1)~
 == AESOLD ~Very well. Move along. We don't need the goblin frightening any visitors.~ 
 EXIT
 
@@ -204,21 +205,23 @@ IF ~~ EXTERN BFSMKJ BFSMk2.GuardDistracted
 
 CHAIN AESOLD BFSMk2.ChaBribeWorked
 ~I've never heard of such an act - but you seem like an upstanding <PRO_MANWOMAN>.~ 
+DO ~IncrementGlobal("BFSMk2GoblinInTheCity","GLOBAL",1)~
 == AESOLD ~Very well. Move along. We don't need the goblin frightening any visitors.~ 
 EXIT
 
 CHAIN AESOLD BFSMk2.StrBribeWorked
 ~I'm not getting paid enough to deal with this.~ 
+DO ~IncrementGlobal("BFSMk2GoblinInTheCity","GLOBAL",1)~
 == AESOLD ~Move along. We don't need the goblin frightening any visitors.~ 
 EXIT
 
 CHAIN BFSMKJ BFSMk2.GateKinLeaves
 ~Never should have trusted you.~ 
-DO ~EscapeArea()~ EXIT
+DO ~AddJournalEntry(@100002, QUEST_DONE) EscapeArea()~ EXIT
 
 CHAIN BFSMKJ BFSMk2.GuardDistracted
-~...Done. Move. Fast.~ 
-DO ~CreateCreatureObjectEffect("BDBGOBG1","BDSHSUM","BFSMK") Wait(3) ActionOverride("BDBGOBG1",DestroySelf())~
+~Spirit! Heed my call! ~ 
+DO ~CreateCreatureObjectEffect("BDBGOBG1","BDSHSUM","BFSMK") Wait(3) ActionOverride("BDBGOBG1",DestroySelf()) DisplayStringHead("BFSMK",@9009) IncrementGlobal("BFSMk2GoblinInTheCity","GLOBAL",1)~
 EXIT
 
 // Interjections
@@ -440,4 +443,9 @@ END
 // Planar Prison
 I_C_T PBHUNT01 5 BFSMKPLANAR
 == BFSMKJ IF ~InParty("BFSMK") InMyArea("BFSMK") !StateCheck("BFSMK",CD_STATE_NOTVALID)~ THEN ~Got myself out of a cage before. Can do it again.~
+END
+
+// Government District, Viconia
+I_C_T VICONI 0 BFSMKVICONI1
+== BFSMKJ IF ~InParty("BFSMK") InMyArea("BFSMK") !StateCheck("BFSMK",CD_STATE_NOTVALID)~ THEN ~Haven't had good dealings with drow… but this? Don't sit right with me.~
 END

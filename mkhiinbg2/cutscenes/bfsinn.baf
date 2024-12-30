@@ -1,0 +1,43 @@
+IF
+	True() 
+THEN
+	RESPONSE #100
+	    CutSceneID(Player1) 
+		SetGlobal("BFSMithrestUnrest","GLOBAL",2) 
+		ActionOverride("bfsnb1",FaceObject("BFSMK"))
+        Wait(1)
+		DisplayStringHead("bfsnb1",@9000)  /* ~Aieee!~ */ 
+		Wait(3)
+		ActionOverride("bfsnb1",MoveToPoint([684.649]))
+		Wait(3)
+		DisplayStringHead("bfsnb2",@9001)  /* ~Where are you fleeing to? My proposal was hardly as scandalous as...~ */ 
+		Wait(5)
+		DisplayStringHead("bfsnb1",@9002) /* ~G-g-GOBLIN!~ */ 
+		ActionOverride("bfsnb1",FaceObject("bfsnk2"))
+		Wait(3)
+		DisplayStringHead("bfsnb2",@9003) /* ~A goblin? Here? Utterly preposterous!~ */ 
+		Wait(3)
+		ActionOverride("bfsnb2",FaceObject("bfsmk"))
+		Wait(3)
+		DisplayStringHead("bfsnb2",@9004) /* ~AIEEEH!~ */ 
+		ActionOverride("bfsnb2",MoveToPoint([679.626])) /* runs to hide behind noble 1 */ 
+		Wait(2)
+		DisplayStringHead("bfsnb1",@9005) /* ~Shoo, shoo! Begone, you filthy beast!~ */ 
+		Wait(5)
+		DisplayStringHead("bfsnb2",@9006) /* ~The foul creature will pay us no heed! */ 
+		Wait(5)
+		DisplayStringHead("bfsnb1",@9007) /* ~Perhaps we should slip out the back? Before it decides to attack?~ */ 
+		Wait(5)
+		DisplayStringHead("bfsnb2",@9008) /* ~Quickly now. Before it follows us.~ */ 
+		Wait(5)
+		ActionOverride("bfsnb1",MoveToPoint([816.395])) /* runs to back */
+		Wait(1)
+		ActionOverride("bfsnb1",DestroySelf())
+		ActionOverride("bfsnb2",MoveToPoint([816.395])) /* runs to back */
+		Wait(1)
+		ActionOverride("bfsnb2",DestroySelf())
+		Wait(1)
+		        /* actions end here */ 
+		EndCutSceneMode() /* exits the the StartCutSceneMode() action */
+		IncrementGlobal("BFSMk2GoblinInTheCity","GLOBAL",1)
+END

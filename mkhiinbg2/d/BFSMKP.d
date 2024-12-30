@@ -3,7 +3,7 @@ BEGIN BFSMKP
 /* Breaking Point Reached Dialogue */ 
 IF ~Global("BFSMKLeaves","GLOBAL",0) HappinessLT(Myself,-299)~ BFSMk.BetterOnMyOwn
 SAY ~You're gonna get me killed. I'm better on my own.~ [BD67767]
-IF ~~ DO ~EscapeArea()~ EXIT
+IF ~~ DO ~AddJournalEntry(@100002, QUEST_DONE) EscapeArea()~ EXIT
 END
 
 /* Kicked Out Dialogue */ 
