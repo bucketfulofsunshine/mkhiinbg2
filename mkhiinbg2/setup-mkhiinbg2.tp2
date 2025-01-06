@@ -100,11 +100,11 @@ SAY CRITICAL_MISS ~Come ON.~ [BD67757]
 SAY TARGET_IMMUNE ~Can't hurt it that way.~ [BD67758]
 SAY INVENTORY_FULL ~I can't carry everything.~ [BD67759]
 SAY SPELL_DISRUPTED ~Spell's gone.~ [BD67762]
-SAY BIO ~When asked about her past, M'Khiin grunts and says you'll sleep easier if you don't know her story.
+SAY BIO ~When asked about her past, M'KHIIN grunts and says you'll sleep easier if you don't know her story.
 
-Eventually, she shares that her goblin tribe was a vicious and brutal one. As a shaman, M'Khiin commanded some degree of respect, but her abilities also brought her a maturity the other goblins lacked. She wanted desperately to escape from the cruelty of her life, but the other goblins valued her abilities too much to let her go.
+Her goblin tribe was a vicious and brutal one. As a shaman, M'Khiin commanded some degree of respect, but her abilities also brought her a maturity the other goblins lacked. She wanted desperately to escape from the cruelty of her life, but the other goblins valued her abilities too much to let her go.
 
-After escaping from her tribe, she travelled along the Sword Coast, persecuted by humans at every turn. Her recent travels brought her to Athkatla - where she was chased off near the gates. After being forced to enter through the sewers, M'Khiin stumbled upon your party and decided to travel with you. While she still seems frighteningly out of place, begging the question of whether a goblin can ever exist within a city, she seems determined to carve out a new path for herself.~
+Once she finally escaped, she travelled along the Sword Coast, yet the denizens outside her goblin encampment proved little kinder. Her journey eventually led her to Athkatla where she was chased off near the gates. She snuck in through the city's sewers, hoping to avoid further persecution and within those dark, damp corridors she encountered your party.~
 WRITE_ASCII SCRIPT_OVERRIDE ~BFSMKS~ #8  // override script 
 WRITE_ASCII DIALOG ~BFSMK~  #8  // dialogue file 
 WRITE_ASCII DEATHVAR ~BFSMK~  #32 // death variable 
@@ -188,13 +188,11 @@ SAY CRITICAL_MISS ~Come ON.~ [BD67757]
 SAY TARGET_IMMUNE ~Can't hurt it that way.~ [BD67758]
 SAY INVENTORY_FULL ~I can't carry everything.~ [BD67759]
 SAY SPELL_DISRUPTED ~Spell's gone.~ [BD67762]
-SAY BIO ~When asked about her past, M'Khiin grunts and says you'll sleep easier if you don't know her story.
+SAY BIO ~When asked about her past, M'KHIIN grunts and says you'll sleep easier if you don't know her story.
 
-Eventually, she shares that her goblin tribe was a vicious and brutal one. As a shaman, M'Khiin commanded some degree of respect, but her abilities also brought her a maturity the other goblins lacked. She wanted desperately to escape from the cruelty of her life, but the other goblins valued her abilities too much to let her go.
+Her goblin tribe was a vicious and brutal one. As a shaman, M'Khiin commanded some degree of respect, but her abilities also brought her a maturity the other goblins lacked. She wanted desperately to escape from the cruelty of her life, but the other goblins valued her abilities too much to let her go.
 
-After escaping from her tribe, she travelled along the Sword Coast, persecuted by humans at every turn. Always alone, always distrusted. Enslaved once and freed through her own determination and skill. 
-
-Her recent travels brought her to Athkatla - where she was chased off near the gates. After entering through the sewers, M'Khiin stumbled upon your party and decided to travel with you. While she still seems frighteningly out of place, begging the question of whether goblins can ever exist within a city, she seems determined to carve out a new path for herself.~
+Once she finally escaped, she travelled along the Sword Coast, yet the denizens outside her goblin encampment proved little kinder. Her journey eventually led her to Athkatla where she was chased off near the gates. She snuck in through the city's sewers, hoping to avoid further persecution and within those dark, damp corridors she encountered your party.~
 WRITE_ASCII SCRIPT_OVERRIDE ~BFSMK25S~ #8  // override script 
 WRITE_ASCII DIALOG ~BFSMK25~  #8  // dialogue file 
 WRITE_ASCII DEATHVAR ~BFSMK~  #32 // death variable 
