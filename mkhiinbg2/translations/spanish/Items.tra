@@ -1,0 +1,58 @@
+@1000 = ~Túnica de los Soñadores de Fantasmas~
+@1001 = ~Aparentemente poco más que harapos cosidos juntos, la Túnica de los Soñadores de Fantasmas es en realidad un artefacto de gran importancia histórica para la tribu goblin dak'Dekanter. Cada uno de los docenas de parches de la túnica fue cortado de la túnica de un chamán de una tribu enemiga. Esto convierte a la Túnica de los Soñadores de Fantasmas en algo más que una prenda de vestir; es una representación física de las victorias de los dak'Dekanters a lo largo de los siglos y un símbolo de poder para el chamán que la porta.
+
+CARACTERÍSTICAS:
+
+Clase de armadura: 5
+Aptitudes poseídas: Mejora la velocidad de lanzamiento de hechizos, Vocalizar
+Peso: 3~
+
+
+@1002 = ~The Soulherder's Staff +2~
+@1003 = ~A gnarled wooden staff cut from the dak'Dekanter goblin tribe's sacred tree, this item was a symbol of spiritual power for centuries. It disappeared during a hard-fought battle between the dak'Dekanters and a dwarven clan whose name is lost to history, and those few who remembered it once existed thought it lost forever. It was found discarded in the lost dwarven town of Kanaglym, among other treasures the dwarves stole from their goblin enemies over the years.
+
+STATISTICS:
+
+Equipped abilities:
+– Magic Resistance: +15%
+– Summoned spirits gain a +1 to Strength
+
+THAC0: +2
+Damage: 1d6, +2 (magic)
+Damage Type: Crushing
+Speed Factor: 2
+Proficiency Type: Quarterstaff
+Type: Two-handed
+Requires:
+5 Strength
+
+Weight: 3~
+
+@1002 = ~Bastón del Pastor de Almas +2~
+@1003 = ~Un bastón de madera nudoso cortado del árbol sagrado de la tribu goblin dak'Dekanter, este objeto fue un símbolo de poder espiritual durante siglos. Desapareció durante una dura batalla entre los dak'Dekanters y un clan enano cuyo nombre se ha perdido en la historia, y aquellos pocos que recordaban que alguna vez existió pensaron que se había perdido para siempre. Fue encontrado abandonado en la ciudad enana perdida de Kanaglym, entre otros tesoros que los enanos robaron a sus enemigos goblins a lo largo de los años.
+
+CARACTERÍSTICAS:
+
+Daño: 1d6, +2 (mágico)
+GAC0: +2
+Aptitudes poseídas: resistencia mágica de +15% y los espíritus invocados ganan +1 a Fuerza
+Tipo de daño: Contundente
+Peso: 3
+Factor de velocidad: 2
+Talento marcial: Bastón
+Tipo: A dos manos
+Requisitos: Fuerza 5~
+
+@1004 = ~Portador de la Plaga +1~
+@1005 = ~El arma favorita del chamán goblin Kirrkuk Ratasrojas, los componentes de este arco fueron cuidadosamente moldeados para su propósito por su creador. La madera de su cuerpo fue cortada de un retoño de enebro crecido en las cenizas de un gnomo asesinado por Kirrkuk en batalla. La cuerda fue hecha de seda producida por gusanos que se alimentaban de los cuerpos vivos y atados de un clérigo enano capturado por la tribu de Kirrkuk. A lo largo de su vida, Kirrkuk usó el arco durante sus rituales chamánicos. Al hacerlo, su esencia se infundió en el arma. Las flechas disparadas con este arco parecen buscar gnomos y enanos, y en ocasiones pueden afligir a sus objetivos con una enfermedad que entumece sus extremidades, haciéndolos presas más fáciles para el portador del arco.
+
+CARACTERÍSTICAS:
+
+Daño: +1, +3 contra enanos y gnomos
+GAC0: +1, +3 contra enanos y gnomos
+Aptitudes de combate: 10% de probabilidad de que el objetivo deba salvar contra Muerte o ser afligido por una enfermedad vil, perdiendo así 2 puntos de Destreza (no acumulativo) y quedando ralentizado durante 3 asaltos
+Peso: 2
+Factor de velocidad: 5
+Talento marcial: Arco corto
+Tipo: A dos manos
+Requisitos: Fuerza 6~

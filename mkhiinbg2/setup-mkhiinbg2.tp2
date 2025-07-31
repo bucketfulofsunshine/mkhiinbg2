@@ -1,312 +1,267 @@
-BACKUP ~mkhiinbg2/Backup~ 
+BACKUP ~mkhiinbg2/Backup~
 SUPPORT ~bucketfulofsunshine on Discord~
 VERSION ~Nightly~
 
-AUTO_TRA ~mkhiinbg2/translations/%s~ 
-
+AUTO_TRA ~mkhiinbg2/translations/%s~
 
 LANGUAGE ~English~
-         ~english~   
+         ~english~
+         ~mkhiinbg2/translations/english/Epilogues.tra~
+         ~mkhiinbg2/translations/english/Installation.tra~
+         ~mkhiinbg2/translations/english/Items.tra~
+         ~mkhiinbg2/translations/english/MkhiinSS.tra~
          ~mkhiinbg2/translations/english/JournalEntries.tra~
-		 ~mkhiinbg2/translations/english/cutscenes.tra~
+		     ~mkhiinbg2/translations/english/cutscenes.tra~
+/*LANGUAGE ~Spanish~
+         ~spanish~
+         ~mkhiinbg2/translations/spanish/Epilogues.tra~
+         ~mkhiinbg2/translations/spanish/Installation.tra~
+         ~mkhiinbg2/translations/spanish/Items.tra~
+         ~mkhiinbg2/translations/spanish/MkhiinSS.tra~
+         ~mkhiinbg2/translations/spanish/JournalEntries.tra~
+		     ~mkhiinbg2/translations/spanish/cutscenes.tra~*/
 
-BEGIN ~M'Khiin NPC for BG2EE~
-REQUIRE_PREDICATE GAME_IS ~bg2ee~ ~This mod requires BG2EE~
+BEGIN @0 DESIGNATED 0
+REQUIRE_PREDICATE GAME_IS ~bg2ee~ @1
 
 APPEND ~STATE.IDS~ ~0x80101FEF CD_STATE_NOTVALID~
 UNLESS ~CD_STATE_NOTVALID~
 
-ADD_JOURNAL TITLE (@100000) @100001 USING ~mkhiinbg2/translations/english/JournalEntries.tra~ 
+ADD_JOURNAL TITLE (@100000) @100001 USING ~mkhiinbg2/translations/%LANGUAGE%/JournalEntries.tra~
 
 // RELEASE THE GOBLINS - Add Goblin & M'Khiin animations to BG2EE
-COPY ~mkhiinbg2/animations~ ~override~ 
+COPY ~%MOD_FOLDER%/animations~ ~override~
 
 // GRAB THE LOOT - Add BAMS from SoD (for items)
-COPY ~mkhiinbg2/bam~ ~override~ 
+COPY ~%MOD_FOLDER%/bam~ ~override~
 
 // A DISTINCTIVE VOICE - Add M'Khiin's soundset
-COPY ~mkhiinbg2/sound~ ~override~ 
+COPY ~%MOD_FOLDER%/sound~ ~override~
 
-// BEAR NECESSITIES - Add banter files for Wilson 
+// BEAR NECESSITIES - Add banter files for Wilson
 ACTION_IF FILE_EXISTS_IN_GAME ~wilson.dlg~ THEN BEGIN
  PRINT ~Adding banter file for Wilson~
     APPEND ~interdia.2da~ ~WILSON BWILSON BWILSO25~
     UNLESS ~WILSON~
+
    ACTION_IF NOT (FILE_EXISTS_IN_GAME ~BWILSON.dlg~) THEN BEGIN
-   COMPILE ~mkhiinbg2/d/BWILSONFix.d~
-  END
+    COMPILE ~%MOD_FOLDER%/d/BWILSONFix.d~
+   END
+
    ACTION_IF NOT (FILE_EXISTS_IN_GAME ~BWILSO25.dlg~) THEN BEGIN
-   COMPILE ~mkhiinbg2/d/BWILSO25Fix.d~
-  END
+    COMPILE ~%MOD_FOLDER%/d/BWILSO25Fix.d~
+   END
 END
 
 // WE DON'T SPEAK COMMON - Add dialogues
-COMPILE EVALUATE_BUFFER ~mkhiinbg2/d/BFSMKB.d~
-                        ~mkhiinbg2/d/BFSMK.d~
-						~mkhiinbg2/d/BFSMKP.d~
-						~mkhiinbg2/d/BFSMKJ.d~
-						~mkhiinbg2/d/BFSMK25.d~
-						~mkhiinbg2/d/BFSMK25P.d~
-						~mkhiinbg2/d/BFSMK25J.d~
-						~mkhiinbg2/d/BFSMKB25.d~
-						~mkhiinbg2/d/FATESP.d~
-						~mkhiinbg2/d/BFSGOB.d~
-						~mkhiinbg2/d/BFSGB2.d~
-						
+COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/d/BFSMKB.d~
+                        ~%MOD_FOLDER%/d/BFSMK.d~
+                        ~%MOD_FOLDER%/d/BFSMKP.d~
+                        ~%MOD_FOLDER%/d/BFSMKJ.d~
+                        ~%MOD_FOLDER%/d/BFSMK25.d~
+                        ~%MOD_FOLDER%/d/BFSMK25P.d~
+                        ~%MOD_FOLDER%/d/BFSMK25J.d~
+                        ~%MOD_FOLDER%/d/BFSMKB25.d~
+                        ~%MOD_FOLDER%/d/FATESP.d~
+                        ~%MOD_FOLDER%/d/BFSGOB.d~
+                        ~%MOD_FOLDER%/d/BFSGB2.d~
+
 // CREATURES AND FEATURES - add creature file, edit scripts, sounds, etc
-/* Kin SOA creature */ 
-COPY ~mkhiinbg2/cre/BFSMK.cre~ ~override/BFSMK.cre~ 
-SAY NAME1 ~M'Khiin~
-SAY NAME2 ~M'Khiin~
-SAY INITIAL_MEETING ~~ [] 
-SAY MORALE ~No! NO! I won't, I won't!~ [BD67768]
-SAY HAPPY ~This is so much better than my old life.~ [BD67764] 
-SAY UNHAPPY_ANNOYED ~Take care. You're making bad decisions.~ [BD67765] 
-SAY UNHAPPY_SERIOUS ~If I wanted to be around people like this, I'd have stayed with my tribe.~ [BD67766]
-SAY UNHAPPY_BREAKING ~You're gonna get me killed. I'm better on my own.~ [BD67767]
-SAY LEADER ~No one will listen to a goblin, but I'll try.~ [BD67728]
-SAY TIRED ~If I don't lie down, I'll fall asleep on my feet.~ [BD67729]
-SAY BORED ~Realm of the dead's more exciting than this.~ [BD67730]
-SAY BATTLE_CRY1 ~Die! DIE!~ [BD67723]
-SAY BATTLE_CRY2 ~Fools die!~ [BD67724]
-SAY BATTLE_CRY3 ~Freedom or death!~ [BD67725]
-SAY BATTLE_CRY4 ~Fear me!~ [BD67726]
-SAY BATTLE_CRY5 ~You're already a ghost.~ [BD67727]  
-SAY DAMAGE ~Ah!~ [BD67745] 
-SAY DYING ~I go to the ghosts.~ [BD67746]
-SAY HURT ~Need healing.~ [BD67731]
-SAY AREA_FOREST ~Forests always remind me of home. Don't like either of 'em..~  [BD67747]
-SAY AREA_CITY ~Cities aren't safe for my kind. Nowhere is, really.~ [BD67748]
-SAY AREA_DUNGEON ~It's good to see in the dark.~ [BD67749]
-SAY AREA_DAY ~Light's too bright. Can't we camp during the day?~ [BD67750]
-SAY AREA_NIGHT ~All the interesting stuff happens at night.~ [BD67751]
-SAY SELECT_COMMON1 ~Yeah?~ [BD67732]
-SAY SELECT_COMMON2 ~Mmm~ [BD67733]
-SAY SELECT_COMMON3 ~What~ [BD67734]
-SAY SELECT_COMMON4 ~Do it.~ [BD67735]
-SAY SELECT_COMMON5 ~Trouble.~ [BD67736]
-SAY SELECT_COMMON6 ~Hurry.~ [BD67737]
-SAY SELECT_ACTION1 ~All right.~ [BD67738]
-SAY SELECT_ACTION2 ~I will.~ [BD67739]
-SAY SELECT_ACTION3 ~In a tick.~ [BD67740]
-SAY SELECT_ACTION4 ~Push me around, you might get pushed back.~ [BD67752]
-SAY SELECT_ACTION5 ~Grubdoubler, here.~ [BD67753]
-SAY SELECT_ACTION6 ~I'm doing everything you ask! Don't push me.~ [BD67754]
-SAY SELECT_ACTION7 ~So, all goblins look alike to you. That's what you're saying? Racist.~ [BD67755]
-SAY SELECT_RARE1 ~Push me around, you might get pushed back.~ [BD67752]
-SAY SELECT_RARE2 ~Grubdoubler, here.~ [BD67753]
-SAY CRITICAL_HIT ~Fall down now.~ [BD67756]
-SAY CRITICAL_MISS ~Come ON.~ [BD67757]
-SAY TARGET_IMMUNE ~Can't hurt it that way.~ [BD67758]
-SAY INVENTORY_FULL ~I can't carry everything.~ [BD67759]
-SAY SPELL_DISRUPTED ~Spell's gone.~ [BD67762]
-SAY BIO ~When asked about her past, M'KHIIN grunts and says you'll sleep easier if you don't know her story.
+/* Kin SOA creature */
+COPY ~%MOD_FOLDER%/cre/BFSMK.cre~ ~override~
+  SAY NAME1 @100
+  SAY NAME2 @100
+  SAY INITIAL_MEETING @102
+  SAY MORALE @103
+  SAY HAPPY @104
+  SAY UNHAPPY_ANNOYED @105
+  SAY UNHAPPY_SERIOUS @106
+  SAY UNHAPPY_BREAKING @107
+  SAY LEADER @108
+  SAY TIRED @109
+  SAY BORED @110
+  SAY BATTLE_CRY1 @111
+  SAY BATTLE_CRY2 @112
+  SAY BATTLE_CRY3 @113
+  SAY BATTLE_CRY4 @114
+  SAY BATTLE_CRY5 @115
+  SAY DAMAGE @116
+  SAY DYING @117
+  SAY HURT @118
+  SAY AREA_FOREST @119
+  SAY AREA_CITY @120
+  SAY AREA_DUNGEON @121
+  SAY AREA_DAY @122
+  SAY AREA_NIGHT @123
+  SAY SELECT_COMMON1 @124
+  SAY SELECT_COMMON2 @125
+  SAY SELECT_COMMON3 @126
+  SAY SELECT_COMMON4 @127
+  SAY SELECT_COMMON5 @128
+  SAY SELECT_COMMON6 @129
+  SAY SELECT_ACTION1 @130
+  SAY SELECT_ACTION2 @131
+  SAY SELECT_ACTION3 @132
+  SAY SELECT_ACTION4 @133
+  SAY SELECT_ACTION5 @134
+  SAY SELECT_ACTION6 @135
+  SAY SELECT_ACTION7 @136
+  SAY SELECT_RARE1 @137
+  SAY SELECT_RARE2 @138
+  SAY CRITICAL_HIT @139
+  SAY CRITICAL_MISS @140
+  SAY TARGET_IMMUNE @141
+  SAY INVENTORY_FULL @142
+  SAY SPELL_DISRUPTED @143
+  SAY BIO @144
+  WRITE_ASCII SCRIPT_OVERRIDE ~BFSMKS~ #8  // override script
+  WRITE_ASCII DIALOG ~BFSMK~ #8  // dialogue file
+  WRITE_ASCII DEATHVAR ~BFSMK~ #32 // death variable
 
-Her goblin tribe was a vicious and brutal one. As a shaman, M'Khiin commanded some degree of respect, but her abilities also brought her a maturity the other goblins lacked. She wanted desperately to escape from the cruelty of her life, but the other goblins valued her abilities too much to let her go.
+/* sewer gobbo friends */
+COPY ~%MOD_FOLDER%/cre/BFSGOB.cre~ ~override~
+  WRITE_ASCII SCRIPT_OVERRIDE ~BFSGOBS~ #8
+  WRITE_ASCII DEATHVAR ~BFSGOB~ #32
+  WRITE_ASCII DIALOG ~BFSGOB~ #8
 
-Once she finally escaped, she travelled along the Sword Coast, yet the denizens outside her goblin encampment proved little kinder. Her journey eventually led her to Athkatla where she was chased off near the gates. She snuck in through the city's sewers, hoping to avoid further persecution and within those dark, damp corridors she encountered your party.~
-WRITE_ASCII SCRIPT_OVERRIDE ~BFSMKS~ #8  // override script 
-WRITE_ASCII DIALOG ~BFSMK~  #8  // dialogue file 
-WRITE_ASCII DEATHVAR ~BFSMK~  #32 // death variable 
-
-/* sewer gobbo friends */ 
-COPY ~mkhiinbg2/cre/BFSGOB.cre~ ~override/BFSGOB.cre~ 
-WRITE_ASCII SCRIPT_OVERRIDE ~BFSGOBS~ #8
-WRITE_ASCII DEATHVAR ~BFSGOB~ #32
-WRITE_ASCII DIALOG ~BFSGOB~ #8
-	 
-COPY ~mkhiinbg2/cre/BFSGB2.cre~ ~override/BFSGB2.cre~ 
-WRITE_ASCII SCRIPT_OVERRIDE ~BFSGB2S~ #8
-WRITE_ASCII DEATHVAR ~BFSGB2~ #32
-WRITE_ASCII DIALOG ~BFSGB2~ #8
+COPY ~%MOD_FOLDER%/cre/BFSGB2.cre~ ~override~
+  WRITE_ASCII SCRIPT_OVERRIDE ~BFSGB2S~ #8
+  WRITE_ASCII DEATHVAR ~BFSGB2~ #32
+  WRITE_ASCII DIALOG ~BFSGB2~ #8
 
 /* the hostile sewer gobbo */
-COPY ~mkhiinbg2/cre/BFSGB3.cre~ ~override/BFSGB3.cre~ 
-WRITE_ASCII SCRIPT_OVERRIDE ~BFSGB3S~ #8
-WRITE_ASCII DEATHVAR ~BFSGB3~ #32
-
+COPY ~%MOD_FOLDER%/cre/BFSGB3.cre~ ~override~
+  WRITE_ASCII SCRIPT_OVERRIDE ~BFSGB3S~ #8
+  WRITE_ASCII DEATHVAR ~BFSGB3~ #32
 
 /* mithrest nobles */
-COPY ~mkhiinbg2/cre/bfsnb1.cre~ ~override/bfsnb1.cre~ 
-WRITE_ASCII SCRIPT_OVERRIDE ~bfsnb1S~ #8
-WRITE_ASCII DEATHVAR ~bfsnb1~ #32
-WRITE_ASCII DIALOG ~bfsnb1~ #8
+COPY ~%MOD_FOLDER%/cre/bfsnb1.cre~ ~override~
+  WRITE_ASCII SCRIPT_OVERRIDE ~bfsnb1S~ #8
+  WRITE_ASCII DEATHVAR ~bfsnb1~ #32
+  WRITE_ASCII DIALOG ~bfsnb1~ #8
 
-COPY ~mkhiinbg2/cre/bfsnb2.cre~ ~override/bfsnb2.cre~ 
-WRITE_ASCII SCRIPT_OVERRIDE ~bfsnb2S~ #8
-WRITE_ASCII DEATHVAR ~bfsnb2~ #32
-WRITE_ASCII DIALOG ~bfsnb2~ #8
- 
-/* goblin ghosts */ 	 
-COPY ~mkhiinbg2/cre/bdbgobg1.cre~ ~override/bdbgobg1.cre~ 
-COPY ~mkhiinbg2/cre/bdbgobg2.cre~ ~override/bdbgobg2.cre~ 
-COPY ~mkhiinbg2/cre/bdbgobg3.cre~ ~override/bdbgobg3.cre~ 
-	 
+COPY ~%MOD_FOLDER%/cre/bfsnb2.cre~ ~override~
+  WRITE_ASCII SCRIPT_OVERRIDE ~bfsnb2S~ #8
+  WRITE_ASCII DEATHVAR ~bfsnb2~ #32
+  WRITE_ASCII DIALOG ~bfsnb2~ #8
+
+/* goblin ghosts */
+COPY ~%MOD_FOLDER%/cre/bdbgobg1.cre~ ~override~
+COPY ~%MOD_FOLDER%/cre/bdbgobg2.cre~ ~override~
+COPY ~%MOD_FOLDER%/cre/bdbgobg3.cre~ ~override~
+
 /* Kin TOB creature file */
-COPY ~mkhiinbg2/cre/BFSMK25.cre~ ~override/BFSMK25.cre~ 
-SAY NAME1 ~M'Khiin~
-SAY NAME2 ~M'Khiin~
-SAY INITIAL_MEETING ~~ [] 
-SAY MORALE ~No! NO! I won't, I won't!~ [BD67768]
-SAY HAPPY ~This is so much better than my old life.~ [BD67764] 
-SAY UNHAPPY_ANNOYED ~Take care. You're making bad decisions.~ [BD67765] 
-SAY UNHAPPY_SERIOUS ~If I wanted to be around people like this, I'd have stayed with my tribe.~ [BD67766]
-SAY UNHAPPY_BREAKING ~You're gonna get me killed. I'm better on my own.~ [BD67767]
-SAY LEADER ~No one will listen to a goblin, but I'll try.~ [BD67728]
-SAY TIRED ~If I don't lie down, I'll fall asleep on my feet.~ [BD67729]
-SAY BORED ~Realm of the dead's more exciting than this.~ [BD67730]
-SAY BATTLE_CRY1 ~Die! DIE!~ [BD67723]
-SAY BATTLE_CRY2 ~Fools die!~ [BD67724]
-SAY BATTLE_CRY3 ~Freedom or death!~ [BD67725]
-SAY BATTLE_CRY4 ~Fear me!~ [BD67726]
-SAY BATTLE_CRY5 ~You're already a ghost.~ [BD67727]  
-SAY DAMAGE ~Ah!~ [BD67745] 
-SAY DYING ~I go to the ghosts.~ [BD67746]
-SAY HURT ~Need healing.~ [BD67731]
-SAY AREA_FOREST ~Forests always remind me of home. Don't like either of 'em..~  [BD67747]
-SAY AREA_CITY ~Cities aren't safe for my kind. Nowhere is, really.~ [BD67748]
-SAY AREA_DUNGEON ~It's good to see in the dark.~ [BD67749]
-SAY AREA_DAY ~Light's too bright. Can't we camp during the day?~ [BD67750]
-SAY AREA_NIGHT ~All the interesting stuff happens at night.~ [BD67751]
-SAY SELECT_COMMON1 ~Yeah?~ [BD67732]
-SAY SELECT_COMMON2 ~Mmm~ [BD67733]
-SAY SELECT_COMMON3 ~What~ [BD67734]
-SAY SELECT_COMMON4 ~Do it.~ [BD67735]
-SAY SELECT_COMMON5 ~Trouble.~ [BD67736]
-SAY SELECT_COMMON6 ~Hurry.~ [BD67737]
-SAY SELECT_ACTION1 ~All right.~ [BD67738]
-SAY SELECT_ACTION2 ~I will.~ [BD67739]
-SAY SELECT_ACTION3 ~In a tick.~ [BD67740]
-SAY SELECT_ACTION4 ~Push me around, you might get pushed back.~ [BD67752]
-SAY SELECT_ACTION5 ~Grubdoubler, here.~ [BD67753]
-SAY SELECT_ACTION6 ~I'm doing everything you ask! Don't push me.~ [BD67754]
-SAY SELECT_ACTION7 ~So, all goblins look alike to you. That's what you're saying? Racist.~ [BD67755]
-SAY SELECT_RARE1 ~Push me around, you might get pushed back.~ [BD67752]
-SAY SELECT_RARE2 ~Grubdoubler, here.~ [BD67753]
-SAY CRITICAL_HIT ~Fall down now.~ [BD67756]
-SAY CRITICAL_MISS ~Come ON.~ [BD67757]
-SAY TARGET_IMMUNE ~Can't hurt it that way.~ [BD67758]
-SAY INVENTORY_FULL ~I can't carry everything.~ [BD67759]
-SAY SPELL_DISRUPTED ~Spell's gone.~ [BD67762]
-SAY BIO ~When asked about her past, M'KHIIN grunts and says you'll sleep easier if you don't know her story.
-
-Her goblin tribe was a vicious and brutal one. As a shaman, M'Khiin commanded some degree of respect, but her abilities also brought her a maturity the other goblins lacked. She wanted desperately to escape from the cruelty of her life, but the other goblins valued her abilities too much to let her go.
-
-Once she finally escaped, she travelled along the Sword Coast, yet the denizens outside her goblin encampment proved little kinder. Her journey eventually led her to Athkatla where she was chased off near the gates. She snuck in through the city's sewers, hoping to avoid further persecution and within those dark, damp corridors she encountered your party.~
-WRITE_ASCII SCRIPT_OVERRIDE ~BFSMK25S~ #8  // override script 
-WRITE_ASCII DIALOG ~BFSMK25~  #8  // dialogue file 
-WRITE_ASCII DEATHVAR ~BFSMK~  #32 // death variable 
+COPY ~%MOD_FOLDER%/cre/BFSMK25.cre~ ~override~
+  SAY NAME1 @100
+  SAY NAME2 @100
+  SAY INITIAL_MEETING @102
+  SAY MORALE @103
+  SAY HAPPY @104
+  SAY UNHAPPY_ANNOYED @105
+  SAY UNHAPPY_SERIOUS @106
+  SAY UNHAPPY_BREAKING @107
+  SAY LEADER @108
+  SAY TIRED @109
+  SAY BORED @110
+  SAY BATTLE_CRY1 @111
+  SAY BATTLE_CRY2 @112
+  SAY BATTLE_CRY3 @113
+  SAY BATTLE_CRY4 @114
+  SAY BATTLE_CRY5 @115
+  SAY DAMAGE @116
+  SAY DYING @117
+  SAY HURT @118
+  SAY AREA_FOREST @119
+  SAY AREA_CITY @120
+  SAY AREA_DUNGEON @121
+  SAY AREA_DAY @122
+  SAY AREA_NIGHT @123
+  SAY SELECT_COMMON1 @124
+  SAY SELECT_COMMON2 @125
+  SAY SELECT_COMMON3 @126
+  SAY SELECT_COMMON4 @127
+  SAY SELECT_COMMON5 @128
+  SAY SELECT_COMMON6 @129
+  SAY SELECT_ACTION1 @130
+  SAY SELECT_ACTION2 @131
+  SAY SELECT_ACTION3 @132
+  SAY SELECT_ACTION4 @133
+  SAY SELECT_ACTION5 @134
+  SAY SELECT_ACTION6 @135
+  SAY SELECT_ACTION7 @136
+  SAY SELECT_RARE1 @137
+  SAY SELECT_RARE2 @138
+  SAY CRITICAL_HIT @139
+  SAY CRITICAL_MISS @140
+  SAY TARGET_IMMUNE @141
+  SAY INVENTORY_FULL @142
+  SAY SPELL_DISRUPTED @143
+  SAY BIO @144
+  WRITE_ASCII SCRIPT_OVERRIDE ~BFSMK25S~ #8  // override script
+  WRITE_ASCII DIALOG ~BFSMK25~  #8  // dialogue file
+  WRITE_ASCII DEATHVAR ~BFSMK~  #32 // death variable
 
 /* spells */
-COPY ~mkhiinbg2/spl~ ~override~
+COPY ~%MOD_FOLDER%/spl~ ~override~
 
-// REFINE THE LOOT - Add SoD Items for M'Khiin 
+// REFINE THE LOOT - Add SoD Items for M'Khiin
 // Ghostdreamer Robe
-COPY ~mkhiinbg2/itm/BFSROB.ITM~ ~override~
-SAY 0x0c ~The Ghostdreamers' Robe~
-SAY 0x54 ~Seemingly little more than rags stitched together, the Ghostdreamers' Robe is actually an artifact of great historical significance to the dak'Dekanter goblin tribe. Each of the robe's dozens of patches was cut from the robe of an enemy tribe's shaman. This makes the Ghostdreamers' Robe more than an article of clothing; it is a physical representation of the dak'Dekanters' victories over the centuries and a symbol of power for the shaman who wears it.
-
-STATISTICS:
-
-Equipped abilities: 
-– Armor Class: 5
-– Improves casting speed by 1
-– Vocalize
-
-Weight: 3~
+COPY ~%MOD_FOLDER%/itm/BFSROB.ITM~ ~override~
+  SAY 0x0c @1000
+  SAY 0x54 @1001
 
 // Soulherder Staff
-COPY ~mkhiinbg2/itm/BFSSTF.ITM~ ~override~
-SAY 0x0c ~The Soulherder's Staff +2~
-SAY 0x54 ~A gnarled wooden staff cut from the dak'Dekanter goblin tribe's sacred tree, this item was a symbol of spiritual power for centuries. It disappeared during a hard-fought battle between the dak'Dekanters and a dwarven clan whose name is lost to history, and those few who remembered it once existed thought it lost forever. It was found discarded in the lost dwarven town of Kanaglym, among other treasures the dwarves stole from their goblin enemies over the years.
-
-STATISTICS:
-
-Equipped abilities:
-– Magic Resistance: +15%
-– Summoned spirits gain a +1 to Strength
-
-THAC0: +2
-Damage: 1d6, +2 (magic)
-Damage Type: Crushing
-Speed Factor: 2
-Proficiency Type: Quarterstaff
-Type: Two-handed
-Requires:
- 5 Strength
-
-Weight: 3~
+COPY ~%MOD_FOLDER%/itm/BFSSTF.ITM~ ~override~
+  SAY 0x0c @1002
+  SAY 0x54 @1003
 
 // Blightbringer Bow
-COPY ~mkhiinbg2/itm/BFSBOW.ITM~ ~override~
-SAY 0x0c ~Blightbringer +1~
-SAY 0x54 ~The favored weapon of the goblin shaman Kirrkuk Redrats, this bow's components were each painstakingly molded for their purpose by its creator. The wood of its body was cut from a juniper sapling grown in the ashes of a gnome slain by Kirrkuk in battle. The string was made from silk produced by worms feeding on the bound, living bodies of a dwarven cleric captured by Kirrkuk's tribe. Throughout his life, Kirrkuk used the bow during his shamanic workings. In doing so, his essence was infused into the weapon. Arrows flying from its string seem to seek out gnomes and dwarves, and can, on occasion, afflict their targets with a sickness that weighs their limbs down, making them easier prey for the bow's wielder.
-
-STATISTICS:
-
-Combat abilities:
-– 10% chance that the target must save vs. Death or be afflicted by a foul disease, thereby losing 2 points of Dexterity (non-cumulative) and becoming slowed for 3 rounds
-
-THAC0: +1, +3 vs. dwarves and gnomes
-Damage: +1, +3 vs. dwarves and gnomes
-Speed Factor: 5
-Proficiency Type: Shortbow
-Type: Two-handed
-Requires:
- 6 Strength
-
-Weight: 2~
-
+COPY ~%MOD_FOLDER%/itm/BFSBOW.ITM~ ~override~
+  SAY 0x0c @1004
+  SAY 0x54 @1005
 
 // A FACE ONLY A MONSTER COULD LOVE - Copy her portrait over
 // Vanilla Portrait
-COPY ~mkhiinbg2/portraits/vanilla/MkhiinL.bmp~ ~override~
-COPY ~mkhiinbg2/portraits/vanilla/MkhiinM.bmp~ ~override~
-COPY ~mkhiinbg2/portraits/vanilla/MkhiinS.bmp~ ~override~
+COPY ~%MOD_FOLDER%/portraits/vanilla/MkhiinL.bmp~ ~override~
+COPY ~%MOD_FOLDER%/portraits/vanilla/MkhiinM.bmp~ ~override~
+COPY ~%MOD_FOLDER%/portraits/vanilla/MkhiinS.bmp~ ~override~
 
-// Artastrophe portrait 
-BEGIN ~Artastrophe~
-SUBCOMPONENT ~Install alternate portrait for M'Khiin?~
-  REQUIRE_COMPONENT ~setup-mkhiinbg2.tp2~ ~0~ ~The main component must be installed.~
-COPY ~mkhiinbg2/portraits/artastrophe/MkhiinL.bmp~ ~override~
-COPY ~mkhiinbg2/portraits/artastrophe/MkhiinM.bmp~ ~override~
-COPY ~mkhiinbg2/portraits/artastrophe/MkhiinS.bmp~ ~override~
+// Artastrophe portrait
+BEGIN @2 DESIGNATED 10 SUBCOMPONENT @3
+REQUIRE_COMPONENT ~setup-mkhiinbg2.tp2~ ~0~ @4
 
-// Appending All The Things 
+COPY ~%MOD_FOLDER%/portraits/artastrophe/MkhiinL.bmp~ ~override~
+COPY ~%MOD_FOLDER%/portraits/artastrophe/MkhiinM.bmp~ ~override~
+COPY ~%MOD_FOLDER%/portraits/artastrophe/MkhiinS.bmp~ ~override~
+
+// Appending All The Things
 APPEND ~pdialog.2da~ ~BFSMK BFSMKP BFSMKJ BFSMKD BFSMK25P BFSMK25J BFSMK25D BFSMK25~ UNLESS ~BFSMK~
 
 APPEND ~interdia.2da~ ~BFSMK BFSMKB BFSMKB25~ UNLESS ~BFSMK~
 
 // Scripts
-EXTEND_BOTTOM ~AR0701.bcs~   ~mkhiinbg2/scripts/AR0701.baf~
-EXTEND_BOTTOM ~AR0704.bcs~   ~mkhiinbg2/scripts/AR0704.baf~
-COMPILE EVALUATE_BUFFER ~mkhiinbg2/scripts/BFSMKS.baf~ 
-                        ~mkhiinbg2/scripts/BFSMK25S.baf~ 
-						
-/* compile new mithrest cutscene */ 
-COMPILE ~mkhiinbg2/cutscenes/bfsinn.baf~ 						
+EXTEND_BOTTOM ~AR0701.bcs~  ~%MOD_FOLDER%/scripts/AR0701.baf~
+EXTEND_BOTTOM ~AR0704.bcs~  ~%MOD_FOLDER%/scripts/AR0704.baf~
 
-// Epilogues 
-EXTEND_TOP ~AR6200.bcs~ ~mkhiinbg2/scripts/AR6200.baf~
-// True Neutral Epilogue 
-COPY ~mkhiinbg2/epilogues/BFSMKZ.2da~ ~override/BFSMK01.2da~
-REPLACE ~99999~ ~M'Khiin continued to wander. Travelling from forest-to-city, ever distancing herself from the life she once knew, never settling in one place for long. Her experience, gained through her travels with <CHARNAME>, eventually brought her to the sprawling hives of Sigil. Even a goblin could find acceptance within the throng of different races edging out an existence within. 
+COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/scripts/BFSMKS.baf~
+                        ~%MOD_FOLDER%/scripts/BFSMK25S.baf~
 
-Her time in Sigil offered many opportunities - foremost meetings with her Dankwood, Zendikar and Ixalan kin. Through discussions with them, M'Khiin relearned ancient lore:  a history, linking back to the Feywild, that material plane goblins had lost to time. 
+/* compile new mithrest cutscene */
+COMPILE ~%MOD_FOLDER%/cutscenes/bfsinn.baf~
 
-But, when plots between gods or archfey threatened to drag her in, M'Khiin moved on once more. Her destiny, she told anyone curious enough to ask, was her own. Only <CHARNAME> asking for aid would ever sway her from her path.~
-// Neutral Good Epilogue 
-COPY ~mkhiinbg2/epilogues/BFSMKZ.2da~ ~override/BFSMK02.2da~
-REPLACE ~99999~ ~M'Khiin continued to wander. Travelling from forest-to-city, ever distancing herself from the life she once knew, never settling in one place for long. Her experience, gained through her travels with <CHARNAME>, eventually brought her to the sprawling hives of Sigil. Even a goblin could find acceptance within the throng of different races edging out an existence within. 
+// Epilogues
+EXTEND_TOP ~AR6200.bcs~ ~%MOD_FOLDER%/scripts/AR6200.baf~
+// True Neutral Epilogue
+COPY ~%MOD_FOLDER%/epilogues/BFSMKZ.2da~ ~override/BFSMK01.2da~
+REPLACE ~99999~ @500
 
-Her time in Sigil offered many opportunities - foremost meetings with her Dankwood, Zendikar and Ixalan kin. Through discussions with them, M'Khiin relearned ancient lore:  a history, linking back to the Feywild, that material plane goblins had lost to time. 
+// Neutral Good Epilogue
+COPY ~%MOD_FOLDER%/epilogues/BFSMKZ.2da~ ~override/BFSMK02.2da~
+REPLACE ~99999~ @501
 
-While she could blend within the crowds of Sigil, M'Khiin eventually found herself longing for home. Not the prison she once knew but the refuge she'd edged out for others. She returned to Athkatla, bringing her newfound knowledge with her, and remained in the city for many years. Under M'Khiin's leadership, the small community continued to grow and prosper.
-
-When asked, the goblin  happily recounted her travels with <CHARNAME>, sharing how her friend shaped her view of the world. Change is possible, she insisted, with a little determination and teamwork.~						
-
-// Crossmod 
+// Crossmod
 // BAEBG2
-BEGIN ~Crossmod with Baeloth for BG2~ 
-REQUIRE_COMPONENT ~Zdbae.tp2~ ~0~ ~Baeloth for BG2 has to be installed.~
-COMPILE ~mkhiinbg2/crossmod/baebg2.d~ 
+BEGIN @5 DESIGNATED 20
+REQUIRE_COMPONENT ~Zdbae.tp2~ ~0~ @6
+
+COMPILE ~%MOD_FOLDER%/crossmod/baebg2.d~
