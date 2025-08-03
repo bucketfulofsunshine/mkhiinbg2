@@ -34,7 +34,7 @@ Global("BFSMkAnomenToB1","GLOBAL",0)~ THEN BANOME25 BFSMkAnomenToB1
 ~The end draws ever closer. What will you do when the battles are over, M'Khiin?~  
 DO ~SetGlobal("BFSMkAnomenToB1","GLOBAL",1)~  
 == BFSMKB25 ~Been thinking I might walk the planes. See what else is out there. Find other goblins.~
-== BANOMEN25 ~That is no small undertaking.~  
+== BANOME25 ~That is no small undertaking.~  
 == BFSMKB25 ~Doesn't have to be, just has to be worthwhile.~
 EXIT  
 

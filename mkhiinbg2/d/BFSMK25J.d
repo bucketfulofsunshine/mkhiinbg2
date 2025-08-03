@@ -1,6 +1,35 @@
 BEGIN BFSMK25J
 
-/* Meet the Bhaalspawn  
+/* 
+  Friendship Talks 
+                  */
+/* Talk 1 - Saradush */ 
+CHAIN IF ~Global("BFSSaradushTalk","GLOBAL",2)~ THEN BFSMK25J BFS.SaradushDiscussion
+~You helped save the elves. Saved their city, Suldanessellar. They called you a hero...~
+= ~And when the battle ended, when this Bhaalspawn war started, they turned on you.~  
+= ~Hmph. You give them water in a drought, and they still squint like you've poisoned the cup.~  
+DO ~SetGlobal("BFSSaradushTalk","GLOBAL",3)~
+END
+++ ~I've grown used to distrust. Their stares don't cut so deep anymore.~ EXTERN BFSMK25J BFS.ThickerSkin
++ ~OR(2) Race(Player1,ELF) Race(Player1,HALF_ELF)~ + ~I hoped to find belonging among my kin, I was wrong.~ EXTERN BFSMK25J BFS.OutsiderRelatable
+++ ~Let them look as they please. Their fear is their own weakness not mine.~ EXTERN BFSMK25J BFS.FearIsTheMindKillerElectricBoogaloo
+
+CHAIN BFSMK25J BFS.ThickerSkin
+~Good. Means arrows will have a harder time too. Comes with having thicker skin.~
+END
+IF ~~ EXTERN BFSMK25J BFS.FearIsTheMindKillerElectricBoogaloo
+
+CHAIN BFSMK25J BFS.OutsiderRelatable
+~Not easy being different from your kin. I would know.~ 
+END
+IF ~~ EXTERN BFSMK25J BFS.FearIsTheMindKillerElectricBoogaloo
+
+CHAIN BFSMK25J BFS.FearIsTheMindKillerElectricBoogaloo
+~Fear is easy, trust takes guts. The elves made their choice. Don't waste your time on them. We've trouble enough ahead. Another city's worth of them looks like.~
+= ~Keep your eyes sharp, keep your weapons sharper.~
+EXIT
+
+/* Talk 2 - Meet the Bhaalspawn  
 Post claiming Yaga-Shura's heart, Pre-Nyalee reunion */ 
 CHAIN IF ~Global("BFSMk2Siblings","GLOBAL",2)~ THEN BFSMK25J BFSMk.MeetTheBhaalspawn
 ~Reckon your kin might be worse than mine.~ 
@@ -14,28 +43,28 @@ END
 + ~InParty("Sarevok") InParty("Imoen2")~ + ~The only siblings I acknowledge are Imoen and Sarevok.~ EXTERN IMOEN25J BFSMk2.BegrudgingBro 
 
 CHAIN IMOEN25J BFSMk2.ImoenRemainsBestSister
-~Aww! I feel the same way little <PRO_BROTHERSISTER>.~ 
+~Aww! You know I feel the same little <PRO_BROTHERSISTER>.~ 
 END
 IF ~~ EXTERN BFSMK25J BFSMk2.IveNeverEvenMetThesePeople
 
 CHAIN IMOEN25J BFSMk2.ImoenRemainsBestSisterSarevokJudgesYou
-~Aww! I feel the same way little <PRO_BROTHERSISTER>.~ 
-== SAREV25J ~Fool.~
+~Aww! You know I feel the same little <PRO_BROTHERSISTER>.~ 
+== SAREV25J ~Sentimentality is a weakness you can ill afford, fool.~
 == IMOEN25J ~Betcha you're just jealous.~ 
 END
 IF ~~ EXTERN BFSMK25J BFSMk2.IveNeverEvenMetThesePeople
 
 CHAIN IMOEN25J BFSMk2.BegrudgingBro
-~Aww! I feel the same way little <PRO_BROTHERSISTER>.~ 
-== IMOEN25J ~At least on the first part. I'm happy to pretend that Sarevok isn't related to us.~
-== SAREV25J ~Fool.~
+~Aww! You know I feel the same little <PRO_BROTHERSISTER>.~ 
+== IMOEN25J ~At least about the first part. I'm happy to pretend that Sarevok isn't related to us.~
+== SAREV25J ~You mistake my tolerance for kinship.~
 == IMOEN25J ~Betcha you're just jealous.~
 END
 IF ~~ EXTERN BFSMK25J BFSMk2.IveNeverEvenMetThesePeople
 
 CHAIN IMOEN25J BFSMk2.ExceptMaybeTheseOnes
-~That's no way to talk about your favourite sibling! This whole Bhaalspawn mess has been a drag. The only good part is learning we're actually related now.~ 
-== SAREV25J ~Careful, dear sister. Blood ties are not so easily severed once you lay claim to them.~
+~Hey! What's that supposed to mean? If there's one silver lining to this whole Bhaalspawn mess, it's finding out you and me are actually related.~ 
+== SAREV25J ~Sentimentality is a weakness you can ill afford, fool. Blood ties are not so easily severed once you lay claim to them.~
 == IMOEN25J ~Sarevok though? Him I could do without.~ 
 END
 IF ~~ EXTERN BFSMK25J BFSMk2.IveNeverEvenMetThesePeople 
@@ -73,7 +102,7 @@ END
 IF ~~ EXTERN BFSMK25J BFSMk2.ThereCanBeOnlyOne
  
 CHAIN BFSMK25J BFSMk2.ThereCanBeOnlyOne
-~No sense in waiting then. We need to take back the heart. Let's hope the witch wasn't lying. Facing down an invincible giant isn't my idea of a good time.~
+~No sense in waiting then, we need to take back this heart. If the witch lied we'll know soon enough... right around when the giant stomps us flat.~
 DO ~SetGlobal("BFSMk2Siblings","GLOBAL",3)~
 EXIT		 
    
@@ -113,12 +142,17 @@ EXTERN SARVOLO 9
 I_C_T SARSPIR 0 BFSMK2Spirit1
 == BFSMK25J IF ~InParty("BFSMK") InMyArea("BFSMK") !StateCheck("BFSMK",CD_STATE_NOTVALID)~ THEN ~Can't tell much. Spirit's not talking right. He has some kind of...head trauma?~
 == BFSMK25J IF ~InParty("BFSMK") InMyArea("BFSMK") !StateCheck("BFSMK",CD_STATE_NOTVALID)~ THEN ~One thing's clear. He has unfinished business. We tend to that then he passes on.~
-== SARSPIR IF ~InParty("BFSMK") InMyArea("BFSMK") !StateCheck("BFSMK",CD_STATE_NOTVALID)~ THEN ~One thing's clear. He has unfinished business. We tend to that then he passes on.~
+== SARSPIR IF ~InParty("BFSMK") InMyArea("BFSMK") !StateCheck("BFSMK",CD_STATE_NOTVALID)~ THEN ~...~
 END
 
 // Saradush, Melissan
 I_C_T SARMEL01 34 BFSMKSARMEL1
 == BFSMK25J IF ~InParty("BFSMK") InMyArea("BFSMK") !StateCheck("BFSMK",CD_STATE_NOTVALID)~ THEN ~Shouldn't be shouting at us. They started it.~
+END
+
+// Temple, Nyalee
+I_C_T HGNYA01 6 BFSMKNYA1
+== BFSMK25J IF ~InParty("BFSMK") InMyArea("BFSMK") !StateCheck("BFSMK",CD_STATE_NOTVALID)~ THEN ~The spirits whisper about her. Some scream even. That's never good. Might be she's mad, but strength still clings to her bones.~
 END
 
 // Solar, Throne of Bhaal, Finale
