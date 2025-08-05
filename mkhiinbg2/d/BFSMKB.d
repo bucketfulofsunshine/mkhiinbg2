@@ -86,20 +86,34 @@ DO ~SetGlobal("BFSMkHaerDalis2","GLOBAL",1)~
 == BFSMKB ~Not your story to share. You haven't lived it.~ 
 EXIT
 
-// Imoen
+// Imoen 1
 CHAIN
-IF ~InParty("Imoen2")
-See("Imoen2")
+IF ~InParty("BFSMK")
+See("BFSMK")
 !StateCheck("Imoen2",CD_STATE_NOTVALID)
 !StateCheck("BFSMK",CD_STATE_NOTVALID)
 CombatCounter(0)
 !See([ENEMY])
-Global("BFSMkImoen1","GLOBAL",0)~ THEN BFSMKB BFSMkImoen1
-~People don't change unless they've a mind to.~
+Global("BFSMkImoen1","GLOBAL",0)~ THEN IMOEN2J BFSMkImoen1
+~Y'know, ever since Spellhold, folks treat me like I'm fragile. Like I'm gonna break without warning. But you don't do that. How come?~
 DO ~SetGlobal("BFSMkImoen1","GLOBAL",1)~
-== IMOEN2J ~Heh. Sounds like you're talking to yourself there, M'Khiin.~
-== BFSMKB ~I'm talking about you being a Bhaalspawn. It won't change who you are, not unless you let it.~
-== BFSMKB ~So don't let it!~
+== BFSMKB ~You're not fragile, you just got hurt. Big difference.~
+EXIT
+
+// Jaheira 1 
+CHAIN
+IF ~InParty("BFSMK")
+See("BFSMK")
+!StateCheck("Jaheira",CD_STATE_NOTVALID)
+!StateCheck("BFSMK",CD_STATE_NOTVALID)
+CombatCounter(0)
+!See([ENEMY])
+AreaType(CITY)
+Global("BFSMkJaheira1","GLOBAL",0)~ THEN BJAHEIR BFSMkJaheira1
+~Cities are not kind to goblinkind. You must know you will find no belonging here, M'Khiin.~
+DO ~SetGlobal("BFSMkJaheira1","GLOBAL",1)~
+== BFSMKB ~Didn't find it with my tribe either. World's full of places I don't fit in.~
+== BJAHEIR ~Perhaps not...but tread carefully. We've enemies enough without drawing undue attention.~
 EXIT
 
 // Jan Jansen
@@ -216,6 +230,21 @@ DO ~SetGlobal("BFSMkYoshimo1","GLOBAL",1)~
 == BFSMKB ~Good.~
 EXIT
 
+// Aerie 2
+CHAIN
+IF ~InParty("BFSMK")
+See("BFSMK")
+!StateCheck("Aerie",CD_STATE_NOTVALID)
+!StateCheck("BFSMK",CD_STATE_NOTVALID)
+CombatCounter(0)
+!See([ENEMY])
+Global("BFSMkAerie2","GLOBAL",0)~ THEN BAERIE BFSMkAerie2
+~Your magic feels different from the spells that I cast. Wilder somehow, less...restrained.~
+DO ~SetGlobal("BFSMkAerie2","GLOBAL",1)~
+== BFSMKB ~Nature doesn't like cages. Neither do spirits. My magic draws from them, not from books or rules.~
+== BAERIE ~I-I envy that kind of freedom.~
+EXIT
+
 // Haer'Dalis 2
 CHAIN
 IF ~InParty("HaerDalis")
@@ -233,6 +262,22 @@ DO ~SetGlobal("BFSMkHaerDalis3","GLOBAL",1)~
 == BHAERDA ~You are dirty. You are an outsider. You wander Athkatla's streets, unwished for, unwanted, fighting for your existence.~
 == BFSMKB ~*sigh* Shouldn't have asked.~
 == BHAERDA ~It may sound harsh, I grant, but I am something of an outsider myself. Wear the nickname as a badge of pride. You, my pigeon, are a survivor.~
+EXIT
+
+// Imoen 2
+CHAIN
+IF ~InParty("Imoen2")
+See("Imoen2")
+!StateCheck("Imoen2",CD_STATE_NOTVALID)
+!StateCheck("BFSMK",CD_STATE_NOTVALID)
+CombatCounter(0)
+!See([ENEMY])
+Global("BFSMkImoen2","GLOBAL",0)~ THEN BFSMKB BFSMkImoen2
+~People don't change unless they've a mind to.~
+DO ~SetGlobal("BFSMkImoen2","GLOBAL",1)~
+== IMOEN2J ~Heh. Sounds like you're talking to yourself there, M'Khiin.~
+== BFSMKB ~I'm talking to you. About you being a Bhaalspawn. It won't change who you are, not unless you let it.~
+== BFSMKB ~So don't let it!~
 EXIT
 
 // Edwin 2 

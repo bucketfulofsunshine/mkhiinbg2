@@ -37,7 +37,7 @@ Global("BFSSaradushTalk","GLOBAL",0)
 THEN
 RESPONSE #100
 SetGlobal("BFSSaradushTalk","GLOBAL",1)
-SetGlobalTimer("BFSSaradushTimer","GLOBAL",TWO_HOURS)  
+SetGlobalTimer("BFSSaradushTimer","GLOBAL",ONE_HOUR)  
 Continue()
 END
 
@@ -63,7 +63,7 @@ See(Player1)
 !StateCheck(Myself,CD_STATE_NOTVALID)
 CombatCounter(0)
 AreaCheck("AR5204") 
-PartyHasItem(HGHEART)       
+PartyHasItem("HGHEART")       
 Global("BFSMk2Siblings","GLOBAL",0)
 THEN
 RESPONSE #100

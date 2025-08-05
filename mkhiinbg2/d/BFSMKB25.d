@@ -1,5 +1,20 @@
 BEGIN BFSMKB25
 
+// Aerie
+CHAIN  
+IF ~InParty("BFSMK")  
+See("BFSMK")  
+!StateCheck("Aerie",CD_STATE_NOTVALID)  
+!StateCheck("BFSMK",CD_STATE_NOTVALID)  
+CombatCounter(0)  
+!See([ENEMY])  
+Global("BFSMkAerieToB1","GLOBAL",0)~ THEN BAERIE25 BFSMkAerieToB1  
+~All this death, all this destruction... Sometimes it feels as though the world has forgotten how to be kind.~  
+DO ~SetGlobal("BFSMkAerieToB1","GLOBAL",1)~  
+== BFSMKB25 ~It hasn't. Good dirt still sleeps under the ashes. One day calm will return.~  
+== BAERIE25 ~Then I hope we both live to see it.~  
+EXIT
+
 /* Anomen, Lawful Good 
 M'Khiin arc unfinished */
 CHAIN  
@@ -37,6 +52,36 @@ DO ~SetGlobal("BFSMkAnomenToB1","GLOBAL",1)~
 == BANOME25 ~That is no small undertaking.~  
 == BFSMKB25 ~Doesn't have to be, just has to be worthwhile.~
 EXIT  
+
+/* Cernd */
+CHAIN  
+IF ~InParty("Cernd")  
+See("Cernd")  
+!StateCheck("Cernd",CD_STATE_NOTVALID)  
+!StateCheck("BFSMK",CD_STATE_NOTVALID)  
+CombatCounter(0)  
+!See([ENEMY])  
+Global("BFSMkCerndToB1","GLOBAL",0)~ THEN BFSMKB25 BFSMkCerndToB1  
+~Wind's been carrying cryptic whispers lately. Grief, maybe?~  
+DO ~SetGlobal("BFSMkCerndToB1","GLOBAL",1)~  
+== BCERND25 ~I hear the fury of the earth, burdened and weary of this ceaseless bloodshed. A warning, and a plea, for those still willing to listen.~  
+== BFSMKB25 ~Then we stay sharp. No resting when a storm's this close.~
+EXIT 
+
+/* Edwin */
+CHAIN  
+IF ~InParty("BFSMK")  
+See("BFSMK")  
+!StateCheck("Edwin",CD_STATE_NOTVALID)  
+!StateCheck("BFSMK",CD_STATE_NOTVALID)  
+CombatCounter(0)  
+!See([ENEMY])  
+Global("BFSMkEdwinToB1","GLOBAL",0)~ THEN BEDWIN25 BFSMkEdwinToB1  
+~Soon. Soon I shall ascend to my rightful station and leave this ridiculous band behind.~  
+DO ~SetGlobal("BFSMkEdwinToB1","GLOBAL",1)~  
+== BFSMKB25 ~Good. Fewer flies for me to swat.~  
+== BEDWIN25 ~Insolence! Truly, I walk among lesser creatures...~
+EXIT 
 
 
 /* Haer'Dalis, hinting towards M'Khiin's epilogue */ 
@@ -108,4 +153,19 @@ DO ~SetGlobal("BFSMkJanToB1","GLOBAL",1)~
 == BJAN25 ~A balanced diet is important, I'll have you know. Perhaps I can interest you in some boiled turnips? I've been working on a new cookbook, sure to be a bestseller, and...~ 
 == BFSMKB25 ~Always about the turnips with you.~ 
 == BJAN25 ~*sigh* A genius is often misunderstood in their time.~ 
+EXIT
+
+/* Imoen 2
+Dream Talk Continued */
+CHAIN
+IF ~InParty("BFSMK")
+See("BFSMK")
+!StateCheck("Imoen2",CD_STATE_NOTVALID)
+!StateCheck("BFSMK",CD_STATE_NOTVALID)
+Global("BFSMKImoenToB2","GLOBAL",0)~ THEN BIMOEN25 BFS.MkImoenToB2
+~Some nights I can still hear his voice. Irenicus, I mean. Like he's whispering in my head.~
+DO ~SetGlobal("BFSMKImoenToB2","GLOBAL",1)~
+== BFSMKB25 ~Ghosts linger. Even the ones that aren't real.~ 
+== BIMOEN25 ~Do they *ever* disappear?~ 
+== BFSMKB25 ~Sometimes. Sometimes you learn to snarl back louder than they do.~ 
 EXIT
