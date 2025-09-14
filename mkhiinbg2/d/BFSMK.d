@@ -5,7 +5,7 @@ CHAIN IF WEIGHT #-1 ~Global("BFSMkIntro","GLOBAL",0)~ THEN BFSMK BFSMk.Intro
 DO ~SetGlobal("BFSMkIntro","GLOBAL",1)~
 == BFSGOB ~But I'm hungry.~
 == BFSMK ~Don't make me repeat myself. You can do better.~ 
-== BFSGOB ~*spits*~
+== BFSGOB ~...~
 == BFSMK ~Good. Don't need you getting sick. Again.~
 == BFSMK ~Hold. Spirits say we have company. Who goes there?~ 
 END
@@ -29,7 +29,7 @@ CHAIN BFSMK BFSMk2.MoveAlong
 ~Move along then. We're no threat to you.~ 
 END
 ++ ~You haven't answered my question. Why are a group of goblins here?~ EXTERN BFSMK BFSMk2.GobbosWhy
-++ ~Killing goblins *is* my business.~ EXTERN BFSMK BFSMk2.KillingTime
+++ ~Killing goblins is my business.~ EXTERN BFSMK BFSMk2.KillingTime
 ++ ~I can't leave unless I know you intend no harm towards the city.~ EXTERN BFSMK BFSMk2.CityMean
 + ~OR(2) Class(Player1,RANGER_ALL) Class(Player1,DRUID_ALL)~ + ~Goblins in a city rarely end well.~ EXTERN BFSMK BFSMk2.NoPlaceForGobbos
 
@@ -122,7 +122,7 @@ END
 ++ ~Then our path is set. Welcome back, M'Khiin.~ EXTERN BFSMK BFSMk2.IsADeadOne2
 
 CHAIN BFSMK BFSMk2.IsADeadOne2
-~Good to *be* back.~ 
+~Good to be back.~ 
 == BFSGOB ~You're leaving us?~
 == BFSMK ~Yes. But I'm also protecting you. Stay here and don't start any trouble.~
 == BFSGB2 ~Me? Never! Him though...~

@@ -226,14 +226,6 @@ COPY ~%MOD_FOLDER%/portraits/vanilla/MkhiinL.bmp~ ~override~
 COPY ~%MOD_FOLDER%/portraits/vanilla/MkhiinM.bmp~ ~override~
 COPY ~%MOD_FOLDER%/portraits/vanilla/MkhiinS.bmp~ ~override~
 
-// Artastrophe portrait
-BEGIN @2 DESIGNATED 10 SUBCOMPONENT @3
-REQUIRE_COMPONENT ~setup-mkhiinbg2.tp2~ ~0~ @4
-
-COPY ~%MOD_FOLDER%/portraits/artastrophe/MkhiinL.bmp~ ~override~
-COPY ~%MOD_FOLDER%/portraits/artastrophe/MkhiinM.bmp~ ~override~
-COPY ~%MOD_FOLDER%/portraits/artastrophe/MkhiinS.bmp~ ~override~
-
 // Appending All The Things
 APPEND ~pdialog.2da~ ~BFSMK BFSMKP BFSMKJ BFSMKD BFSMK25P BFSMK25J BFSMK25D BFSMK25~ UNLESS ~BFSMK~
 
@@ -258,6 +250,21 @@ REPLACE ~99999~ @500
 // Neutral Good Epilogue
 COPY ~%MOD_FOLDER%/epilogues/BFSMKZ.2da~ ~override/BFSMK02.2da~
 REPLACE ~99999~ @501
+
+// Artastrophe portrait
+BEGIN @2 DESIGNATED 10 SUBCOMPONENT @3
+REQUIRE_COMPONENT ~setup-mkhiinbg2.tp2~ ~0~ @4
+
+COPY ~%MOD_FOLDER%/portraits/artastrophe/MkhiinL.bmp~ ~override~
+COPY ~%MOD_FOLDER%/portraits/artastrophe/MkhiinM.bmp~ ~override~
+COPY ~%MOD_FOLDER%/portraits/artastrophe/MkhiinS.bmp~ ~override~
+
+// Trouveur portrait
+BEGIN @7 DESIGNATED 30 SUBCOMPONENT @3
+REQUIRE_COMPONENT ~setup-mkhiinbg2.tp2~ ~0~ @4
+
+COPY ~%MOD_FOLDER%/portraits/trouveur/MkhiinL.bmp~ ~override~
+COPY ~%MOD_FOLDER%/portraits/trouveur/MkhiinM.bmp~ ~override~
 
 // Crossmod
 // BAEBG2

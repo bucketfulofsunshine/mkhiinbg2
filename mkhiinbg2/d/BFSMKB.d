@@ -14,7 +14,7 @@ Global("BFSMkAerie1","GLOBAL",0)~ THEN BAERIE BFSMkAerie1
 DO ~SetGlobal("BFSMkAerie1","GLOBAL",1)~
 == BFSMKB ~Heard you endured the same. That true?~
 == BAERIE ~When I was younger, yes, b-back when I still had my wings. People had never seen an Avariel before. That made me a curiosity.~
-== BFSMKB ~...and not a person. *sigh* Too many fools around. Always gawking at things that are other.~
+== BFSMKB ~...and not a person. Too many fools around. Always gawking at things that are other.~
 EXIT
 
 // Anomen 
@@ -29,7 +29,7 @@ Global("BFSMkAnomen1","GLOBAL",0)~ THEN BANOMEN BFSMkAnomen1
 ~I have slain my fair share of goblins, I never thought I'd count one among my companions.~
 DO ~SetGlobal("BFSMKAnomen1","GLOBAL",1)~
 == BFSMKB ~Some goblins need slaying. Too much danger to everyone otherwise. Even themselves.~
-== BANOMEN ~A most unusual outlook for someone of your species… and, I admit, not what I anticipated.~
+== BANOMEN ~A most unusual outlook for someone of your species...and, I admit, not what I anticipated.~
 == BFSMKB ~My kin have given me plenty of trouble. Same as your kind.~
 == BFSMKB IF ~Alignment("BFSMK",NEUTRAL_GOOD)~ THEN ~Wouldn't want them killed needlessly. But most are happy to hit first.~
 == BANOMEN ~You are a strange one, M'Khiin Grubdoubler.~
@@ -80,7 +80,7 @@ CombatCounter(0)
 Global("BFSMkHaerDalis2","GLOBAL",0)~ THEN BHAERDA BFSMkHaerDalis2
 ~What draws you to our flock, pigeon? You seem wholly out of place.~
 DO ~SetGlobal("BFSMkHaerDalis2","GLOBAL",1)~
-== BFSMKB ~Not a pigeon. If you don't like me here, then *you* can leave.~
+== BFSMKB ~Not a pigeon. If you don't like me here, then you can leave.~
 == BHAERDA ~You misunderstand. I delight in your presence.~
 == BHAERDA ~A goblin, removed from her own kind, shunned by the common folk. It makes for quite the tale.~
 == BFSMKB ~Not your story to share. You haven't lived it.~ 
@@ -129,7 +129,7 @@ Global("BFSMkJan1","GLOBAL",0)~ THEN BJAN BFSMkJan1
 ~Goblin. Step closer and listen intently because do I have a deal for you!~
 DO ~SetGlobal("BFSMkJan1","GLOBAL",1)~
 == BFSMKB ~Have a name. Might try to use it.~
-== BJAN ~There's no need for gratitude. Let no one ever claim Jan Jansen wasn't as much a philanthropist *cough* as a shrewd inventor and businessman.~
+== BJAN ~There's no need for gratitude. Let no one ever claim Jan Jansen wasn't as much a philanthropist as a shrewd inventor and businessman.~
 == BFSMKB ~Hearing lots of words. Nothing of substance though.~
 == BJAN ~Patience. The sales pitch is as pivotal as the end product. But, to curb your curiosity, let me introduce you to...~
 == BJAN ~The Robe of Goblin Disguise. Too often have your kind been shunned within city limits. Scorned and reviled. No longer. Three goblins can fit inside this comfortable...~ 
@@ -151,7 +151,7 @@ DO ~SetGlobal("BFSMkKeldorn1","GLOBAL",1)~
 == BKELDOR ~The Order is sent to deal with goblin raids on occasion. Most skirmishes end up being bloodier than I would prefer. Unfortunately, diplomacy has never been an option.~
 == BFSMKB ~Wouldn't be. Goblins don't want to listen. Hitting people is more fun.~
 == BFSMKB ~Doesn't answer my question though. You don't mind me being here. Why?~
-== BKELDOR ~Because I believe everyone is capable of kindness. Anyone can *choose* to be good regardless of their origin. Goblins are no exception.~
+== BKELDOR ~Because I believe everyone is capable of kindness. Anyone can choose to be good regardless of their origin. Goblins are no exception.~
 == BFSMKB IF ~Alignment("BFSMK",NEUTRAL_GOOD)~ THEN ~You really think we're capable of that?~
 == BKELDOR IF ~Alignment("BFSMK",NEUTRAL_GOOD)~ THEN ~You have already proven it. And when there's one setting an example, there will be others who follow.~ 
 EXIT

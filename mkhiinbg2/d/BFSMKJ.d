@@ -25,7 +25,7 @@ END
 // Tanner
 IF ~Global("BFSMkTanner","GLOBAL",1)~ THEN BEGIN BFSMk2.Tanner
 SAY ~Smells like my old tribe's den after a feast.~ 
-= ~*sniff* Might smell better even.~
+= ~Might smell better even.~
 IF ~~ DO ~SetGlobal("BFSMkTanner","GLOBAL",2)~ EXIT
 END
 
@@ -68,8 +68,8 @@ SAY ~Wouldn't be. Nothing easy - right - about it.~
 END
 
 IF ~~ BFSMk2.BaelothNotKnown
-SAY ~Drow offered me shelter and food. Said I'd be an exhibit but not be forced to fight. I fell for it.~
-= ~I should hate him. Do sometimes. But I understand too.~ 
+SAY ~Drow offered food, shelter. Said I'd be an exhibit, not fight. I fell for it.~
+= ~Should hate him. Do sometimes. But I get it too.~ 
 = ~He's no more welcome than a goblin. If too-talls imprison themselves, why shouldn't a drow do the same? Not like he's one of them. Not like they'd treat him better.~ 
 = ~Might be he doesn't know another path. Might be other goblins don't either. Someone needs to teach them.~ 
 ++ ~You can teach them, M'Khiin. The change might not happen in your lifetime - but it won't happen *at all* unless you start somewhere.~ + BFSMk2.TeachUntilTheyLearn
@@ -108,12 +108,25 @@ SAY ~Won't bother you then.~
 IF ~~ DO ~SetGlobal("BFSMkFreedSlaves","GLOBAL",2)~ EXIT
 END
 
+// Graveyard
+IF ~Global("BFSKinGraveyard","GLOBAL",1)~ THEN BEGIN BFSMk2.GraveyardBark
+SAY ~Old bones don't sleep quiet in this place. They twist, they twitch. Better not to wake them.~ 
+IF ~~ DO ~SetGlobal("BFSKinGraveyard","GLOBAL",2)~ EXIT
+END
+
+// Suld
+IF ~Global("BFSKinSuld","GLOBAL",1)~ THEN BEGIN BFSMk2.SuldBark
+SAY ~Mmph. Too many deaths here recently, too many spirits screaming at once.~ 
+= ~They say the great tree groans. Roots bleed annd branches scream. A thief gnaws at them all.~
+IF ~~ DO ~SetGlobal("BFSKinSuld","GLOBAL",2)~ EXIT
+END
+
 // City Gates 
-CHAIN IF WEIGHT #-1 ~Global("BFSCityGatesGoblin","GLOBAL",1)~ THEN BFSMKJ BFSMk2.CityGates
-~Guards chased me off earlier. Would've killed me if they could. Careful.~
+CHAIN IF ~Global("BFSCityGatesGoblin","GLOBAL",1)~ THEN BFSMKJ BFSMk2.CityGates
+~Guards chased me off earlier. Would've snapped me like a twig. Careful.~
 DO ~SetGlobal("BFSCityGatesGoblin","GLOBAL",2)~
-== AESOLD ~Hey! You there! You can't bring a goblin into the city! Or...it was already *in* the city? Explain yourself!~
-== BFSMKJ ~I can summon spirits to distract him. Then we run...~ 
+== AESOLD ~Hey! You there! You can't bring a goblin into the city! Or...it was already in the city? Explain yourself!~
+== BFSMKJ ~A whisper from me to any nearby spirits, and he'll dance with shadows while we vanish.~ 
 END
 ++ ~Do it.~ EXTERN BFSMKJ BFSMk2.GuardDistracted
 ++ ~It's okay, M'Khiin, I'll deal with this.~ EXTERN BFSMKJ BFSMk2.GuardBribe
@@ -195,7 +208,7 @@ END
 
 
 CHAIN BFSMKJ bfsmktree1.1
-~Got used to running. First from my tribe, then when the too-talls caged you. I'm tired of it. No retreat. Not today. I'm going to stay and I'm going to fight.~
+~Got used to running. First from my tribe, then when the too-talls caged you. I'm tired of it. No retreat. Not today. I'm staying and I'm fighting.~
 END
 COPY_TRANS PLAYER1 33 
 
@@ -215,7 +228,7 @@ END
 ++ ~We're nearing the end. I have to know that you're ready. There's no turning back.~ EXTERN BFSMKJ bfsmktree2.1
 
 CHAIN BFSMKJ bfsmktree2.1
-~Got used to running. Ran from my tribe, ran from the guards at the gate. I'm tired of it. No retreat. Not today. I'm going to stay and I'm going to fight.~ 
+~Got used to running. Ran from my tribe, ran from the guards at the gate. I'm tired of it. No retreat. Not today. I'm staying and I'm fighting.~ 
 END
 COPY_TRANS PLAYER1 33
 
@@ -241,10 +254,10 @@ CHAIN IF WEIGHT #-1 ~InParty("BFSMK") !StateCheck("BFSMK",CD_STATE_NOTVALID) Ran
 DO ~SetGlobal("BFSMkWaylane","GLOBAL",1)~
 == BFSMKJ ~Something to say?~
 == WAYLANE ~See this mighty fine sphere? You can have it for 500 gold pieces! What a steal!~
-== BFSMKJ ~Sounds good. Might take it.~
+== BFSMKJ ~Sounds good. Might snatch it.~
 == WAYLANE ~I knew you were smarter than you, uh, looked.~
 == BFSMKJ ~Steal, you said? Sphere isn't yours, is it? Not gonna pay you anything. It's as much mine as yours now.~
-== WAYLANE ~Can't believe I got outwitted by a *goblin* of all things.~
+== WAYLANE ~Can't believe I got outwitted by a goblin of all things.~
 EXIT
 
 // Slums - Kylie, Turnip Shopkeeper
@@ -333,7 +346,7 @@ END
 // Bridge District, Rose 
 I_C_T MURDGIRL 11 BFSMKROSE1
 == BFSMKJ IF ~InParty("BFSMK") InMyArea("BFSMK") !StateCheck("BFSMK",CD_STATE_NOTVALID)~ THEN ~Makes no sense. Guril Berries are for natural remedies. Why would a killer use 'em?~
-== BFSMKJ ~Might be Solik Berries. Might be - if the killer was eating while they worked.~ 
+== BFSMKJ ~Might be Solik Berries. Might be - if the killer munched while working.~ 
 END
 
 I_C_T MURDGIRL 21 BFSMKROSE2
@@ -346,7 +359,7 @@ I_C_T BMERCH1 0 BFSMKOGREMERCH1
 END
 
 I_C_T BMERCH1 2 BFSMKOGREMERCH2
-== BFSMKJ IF ~InParty("BFSMK") InMyArea("BFSMK") !StateCheck("BFSMK",CD_STATE_NOTVALID)~ THEN ~They're much bigger. Could push *him* around. Why don't they?~
+== BFSMKJ IF ~InParty("BFSMK") InMyArea("BFSMK") !StateCheck("BFSMK",CD_STATE_NOTVALID)~ THEN ~They're much bigger. Could push him around. Why don't they?~
 END
 
 I_C_T BMERCH1 3 BFSMKOGREMERCH3
@@ -388,5 +401,32 @@ END
 
 // Government District, Viconia
 I_C_T VICONI 0 BFSMKVICONI1
-== BFSMKJ IF ~InParty("BFSMK") InMyArea("BFSMK") !StateCheck("BFSMK",CD_STATE_NOTVALID)~ THEN ~Haven't had good dealings with drow… but this? Don't sit right with me.~
+== BFSMKJ IF ~InParty("BFSMK") InMyArea("BFSMK") !StateCheck("BFSMK",CD_STATE_NOTVALID)~ THEN ~Haven't had good dealings with drow...but this? Don't sit right with me.~
+END
+
+// Lonk is dealt with so we're gathering the team & charging Irenicus
+I_C_T PLAYER1 15 BFSMKLONK
+== BFSMKJ IF ~InParty("BFSMK") !StateCheck("BFSMK", CD_STATE_NOTVALID)~ ~Good. No one rots behind a cage anymore. Free things bite back though, careful <CHARNAME>.~
+END
+
+// Entering the Hells
+I_C_T PLAYER1 25 BFSMKHELL1
+== BFSMKJ IF ~InParty("BFSMK") !StateCheck("BFSMK",CD_STATE_NOTVALID) InMyArea("BFSMK")~ THEN ~This place wasn't meant for mortals. But your spirit called, <CHARNAME>, and I followed.~
+END
+
+// Battling Irenicus in the Hells
+I_C_T HELLJON 7 BFSMKHELL2
+== BFSMKJ IF ~InParty("BFSMK") !StateCheck("BFSMK",CD_STATE_NOTVALID) InMyArea("BFSMK")~ THEN ~The spirits spit on you, soul-thief!~
+END
+
+I_C_T HELLJON 8 BFSMKHELL2
+== BFSMKJ IF ~InParty("BFSMK") !StateCheck("BFSMK",CD_STATE_NOTVALID) InMyArea("BFSMK")~ THEN ~The spirits spit on you, soul-thief!~
+END
+
+I_C_T HELLJON 9 BFSMKHELL2
+== BFSMKJ IF ~InParty("BFSMK") !StateCheck("BFSMK",CD_STATE_NOTVALID) InMyArea("BFSMK")~ THEN ~The spirits spit on you, soul-thief!~
+END
+
+I_C_T HELLJON 10 BFSMKHELL2
+== BFSMKJ IF ~InParty("BFSMK") !StateCheck("BFSMK",CD_STATE_NOTVALID) InMyArea("BFSMK")~ THEN ~The spirits spit on you, soul-thief!~
 END

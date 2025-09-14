@@ -6,7 +6,7 @@ IF ~~ EXIT
 END
 
 IF ~IsGabber(Player1) RandomNum(3,2)~ BFSGob2.2  			
-SAY ~What do *you* want?~ 
+SAY ~What do you want?~ 
 IF ~~ EXIT
 END
 
