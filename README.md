@@ -1,6 +1,6 @@
 ## THIS MOD IS STILL A WIP AND IS NOT AT VERSION 1.0 (RELEASE) YET
 
-# M'Khiin NPC for BG2EE. 
+# M'Khiin NPC (For BG2EE or EET)
 This mod adds M'Khiin Grubdoubler, the goblin companion from Siege of Dragonspear, to BG2EE as a joinable NPC. 
 
 ## FAQ
