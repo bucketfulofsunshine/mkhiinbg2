@@ -1,4 +1,6 @@
-## THIS MOD IS STILL A WIP AND IS NOT AT VERSION 1.0 (RELEASE) YET
+<p align="center">
+  <img src="https://static.wikia.nocookie.net/baldursgategame/images/0/08/M%27Khiin_Grubdoubler_MKHIIN_Portrait_SoD.png/revision/latest?cb=20180924203225" />
+</p>
 
 # M'Khiin NPC (For BG2EE or EET)
 This mod adds M'Khiin Grubdoubler, the goblin companion from Siege of Dragonspear, to BG2EE as a joinable NPC. 
@@ -15,7 +17,7 @@ A: Haer'Dalis is a good fit - her banters with him strengthen her epilogues. M'K
 
 ### Q: What are your current plans for the mod? 
 
-Version 1.0 adds M'Khiin as a joinable NPC with content equivalent to other One-Day NPCs. 
+Version 1.0 will add M'Khiin as a joinable NPC with content equivalent to other One-Day NPCs. 
 * She banters with vanilla NPCs. 
 * She comments on essential events. E.g. Tree of Life, Spellhold. 
 * She interjects during dialogues.
