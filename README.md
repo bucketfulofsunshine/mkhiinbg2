@@ -1,3 +1,5 @@
+# THIS MOD IS NOT A V1.0 - RELEASE - YET. THIS IS PRE-ALPHA. INSTALL AT YOUR OWN PERIL! 
+
 <p align="center">
   <img src="https://static.wikia.nocookie.net/baldursgategame/images/0/08/M%27Khiin_Grubdoubler_MKHIIN_Portrait_SoD.png/revision/latest?cb=20180924203225" />
 </p>
