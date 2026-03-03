@@ -1,0 +1,48 @@
+@1000 = ~The Ghostdreamers' Robe~
+@1001 = ~Seemingly little more than rags stitched together, the Ghostdreamers' Robe is actually an artifact of great historical significance to the dak'Dekanter goblin tribe. Each of the robe's dozens of patches was cut from the robe of an enemy tribe's shaman. This makes the Ghostdreamers' Robe more than an article of clothing; it is a physical representation of the dak'Dekanters' victories over the centuries and a symbol of power for the shaman who wears it.
+
+STATISTICS:
+
+Equipped abilities:
+– Armor Class: 5
+– Improves casting speed by 1
+– Vocalize
+
+Weight: 3~
+@1002 = ~The Soulherder's Staff +2~
+@1003 = ~A gnarled wooden staff cut from the dak'Dekanter goblin tribe's sacred tree, this item was a symbol of spiritual power for centuries. It disappeared during a hard-fought battle between the dak'Dekanters and a dwarven clan whose name is lost to history, and those few who remembered it once existed thought it lost forever. It was found discarded in the lost dwarven town of Kanaglym, among other treasures the dwarves stole from their goblin enemies over the years.
+
+STATISTICS:
+
+Equipped abilities:
+– Magic Resistance: +15%
+– Summoned spirits gain a +1 to Strength
+
+THAC0: +2
+Damage: 1d6, +2 (magic)
+Damage Type: Crushing
+Speed Factor: 2
+Proficiency Type: Quarterstaff
+Type: Two-handed
+Requires:
+5 Strength
+
+Weight: 3~
+
+@1004 = ~Blightbringer +1~
+@1005 = ~The favored weapon of the goblin shaman Kirrkuk Redrats, this bow's components were each painstakingly molded for their purpose by its creator. The wood of its body was cut from a juniper sapling grown in the ashes of a gnome slain by Kirrkuk in battle. The string was made from silk produced by worms feeding on the bound, living bodies of a dwarven cleric captured by Kirrkuk's tribe. Throughout his life, Kirrkuk used the bow during his shamanic workings. In doing so, his essence was infused into the weapon. Arrows flying from its string seem to seek out gnomes and dwarves, and can, on occasion, afflict their targets with a sickness that weighs their limbs down, making them easier prey for the bow's wielder.
+
+STATISTICS:
+
+Combat abilities:
+– 10% chance that the target must save vs. Death or be afflicted by a foul disease, thereby losing 2 points of Dexterity (non-cumulative) and becoming slowed for 3 rounds
+
+THAC0: +1, +3 vs. dwarves and gnomes
+Damage: +1, +3 vs. dwarves and gnomes
+Speed Factor: 5
+Proficiency Type: Shortbow
+Type: Two-handed
+Requires:
+6 Strength
+
+Weight: 2~

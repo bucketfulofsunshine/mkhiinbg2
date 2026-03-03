@@ -1,0 +1,202 @@
+/* 
+  Set M'Khiin's experience
+                          */
+IF
+InParty(Myself)
+Global("BFSMKHIINXP","GLOBAL",0)
+XPLT(Player1,280001)
+THEN
+RESPONSE #100
+SetGlobal("BFSMKHIINXP","GLOBAL",1)
+END
+
+IF
+InParty(Myself)
+Global("BFSMKHIINXP","GLOBAL",0)
+XPGT(Player1,280000)
+XPLT(Player1,600001)
+THEN
+RESPONSE #100
+SetGlobal("BFSMKHIINXP","GLOBAL",1)
+AddXPObject("BFSMK",239000)
+END
+
+IF
+InParty(Myself)
+Global("BFSMKHIINXP","GLOBAL",0)
+XPGT(Player1,600000)
+XPLT(Player1,1000001)
+THEN
+RESPONSE #100
+SetGlobal("BFSMKHIINXP","GLOBAL",1)
+AddXPObject("BFSMK",639000)
+END
+
+IF
+InParty(Myself)
+Global("BFSMKHIINXP","GLOBAL",0)
+XPGT(Player1,1000000)
+THEN
+RESPONSE #100
+SetGlobal("BFSMKHIINXP","GLOBAL",1)
+AddXPObject("BFSMK",1039000)
+END
+
+/* 
+  Add M'Khiin's dialogues 
+                         */
+/* Gobbos Dead */
+IF
+InParty(Myself)
+See(Player1)
+!StateCheck(Player1,CD_STATE_NOTVALID) 
+!StateCheck(Myself,CD_STATE_NOTVALID)
+CombatCounter(0)
+Dead("BFSGB3")          
+Global("BFSMkDeadGobbos","GLOBAL",0)
+THEN
+RESPONSE #100
+SetGlobal("BFSMkDeadGobbos","GLOBAL",1)
+END
+
+IF
+  Global("BFSMkDeadGobbos","GLOBAL",1)
+ THEN
+ RESPONSE #100
+  MoveToObject(Player1)
+  Dialogue(Player1)
+END 						 
+						 
+/* City Gates */
+IF
+InParty(Myself)
+See(Player1)
+!StateCheck(Player1,CD_STATE_NOTVALID) 
+!StateCheck(Myself,CD_STATE_NOTVALID)
+CombatCounter(0)
+AreaCheck("AR0020")           
+Global("BFSCityGatesGoblin","GLOBAL",0)
+THEN
+RESPONSE #100
+SetGlobal("BFSCityGatesGoblin","GLOBAL",1)
+END
+
+IF
+  Global("BFSCityGatesGoblin","GLOBAL",1)
+ THEN
+ RESPONSE #100
+  MoveToObject(Player1)
+  Dialogue(Player1)
+END 
+
+/* Freed the Slaves */
+IF
+InParty(Myself)
+See(Player1)
+!StateCheck(Player1,CD_STATE_NOTVALID) 
+!StateCheck(Myself,CD_STATE_NOTVALID)
+CombatCounter(0)
+Global("FreeSlaves","GLOBAL",1)
+AreaCheck("AR0406")           
+Global("BFSMkFreedSlaves","GLOBAL",0)
+THEN
+RESPONSE #100
+SetGlobal("BFSMkFreedSlaves","GLOBAL",1)
+END
+
+IF
+  Global("BFSMkFreedSlaves","GLOBAL",1)
+ THEN
+ RESPONSE #100
+  MoveToObject(Player1)
+  Dialogue(Player1)
+END
+
+/* Tanner in Bridge District */
+IF
+InParty(Myself)
+See(Player1)
+!StateCheck(Player1,CD_STATE_NOTVALID) 
+!StateCheck(Myself,CD_STATE_NOTVALID)
+CombatCounter(0)
+AreaCheck("AR0502")           
+Global("BFSMkTanner","GLOBAL",0)
+THEN
+RESPONSE #100
+SetGlobal("BFSMkTanner","GLOBAL",1)
+END
+
+IF
+  Global("BFSMkTanner","GLOBAL",1)
+ THEN
+ RESPONSE #100
+  MoveToObject(Player1)
+  Dialogue(Player1)
+END
+
+/* Mithrest Inn */
+IF
+InParty(Myself)
+See(Player1)
+!StateCheck(Player1,CD_STATE_NOTVALID) 
+!StateCheck(Myself,CD_STATE_NOTVALID)
+AreaCheck("AR0704")           
+Global("BFSNoblesSpawn","AR0704",1)
+Global("BFSMithrestUnrest","GLOBAL",0)
+THEN
+RESPONSE #100
+SetGlobal("BFSMithrestUnrest","GLOBAL",1)
+END
+
+IF
+  Global("BFSMithrestUnrest","GLOBAL",1)
+ THEN
+ RESPONSE #100
+ ClearAllActions() 
+ StartCutSceneMode() 
+ StartCutScene("bfsinn") 
+END 
+
+/* graveyard district */
+IF
+InParty(Myself)
+See(Player1)
+!StateCheck(Player1,CD_STATE_NOTVALID) 
+!StateCheck(Myself,CD_STATE_NOTVALID)
+CombatCounter(0)
+AreaCheck("AR0800")           
+Global("BFSKinGraveyard","GLOBAL",0)
+THEN
+RESPONSE #100
+SetGlobal("BFSKinGraveyard","GLOBAL",1)
+END
+
+IF
+  Global("BFSKinGraveyard","GLOBAL",1)
+ THEN
+ RESPONSE #100
+  MoveToObject(Player1)
+  Dialogue(Player1)
+END 
+
+/* suld */
+IF
+InParty(Myself)
+See(Player1)
+!StateCheck(Player1,CD_STATE_NOTVALID) 
+!StateCheck(Myself,CD_STATE_NOTVALID)
+CombatCounter(0)
+AreaCheck("AR2800")           
+Global("BFSKinSuld","GLOBAL",0)
+THEN
+RESPONSE #100
+SetGlobal("BFSKinSuld","GLOBAL",1)
+END
+
+IF
+  Global("BFSKinSuld","GLOBAL",1)
+ THEN
+ RESPONSE #100
+  MoveToObject(Player1)
+  Dialogue(Player1)
+END 

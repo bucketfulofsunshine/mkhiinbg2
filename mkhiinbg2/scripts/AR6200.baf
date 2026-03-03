@@ -1,0 +1,28 @@
+/* true neutral epilogue */ 
+IF
+Global("StartEndBios","AR6200",1)
+InParty("BFSMK")
+Alignment("BFSMK",NEUTRAL)
+Global("BFSMKBio","GLOBAL",0)
+THEN
+RESPONSE #100
+SetGlobal("BFSMKBio","GLOBAL",1)
+TextScreen("BFSMK01")
+SmallWait(1)
+Continue()
+END
+
+/* neutral good epilogue */ 
+
+IF
+Global("StartEndBios","AR6200",1)
+InParty("BFSMK")
+Alignment("BFSMK",NEUTRAL_GOOD)
+Global("BFSMKBio","GLOBAL",0)
+THEN
+RESPONSE #100
+SetGlobal("BFSMKBio","GLOBAL",1)
+TextScreen("BFSMK02")
+SmallWait(1)
+Continue()
+END
