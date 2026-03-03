@@ -1,4 +1,4 @@
-# THIS MOD IS NOT A V1.0 - RELEASE - YET. THIS IS PRE-ALPHA. INSTALL AT YOUR OWN PERIL! 
+# THIS MOD IS NOT AT V1.0 - RELEASE - YET. THIS IS A PLAYABLE WIP. 
 
 <p align="center">
   <img src="https://static.wikia.nocookie.net/baldursgategame/images/0/08/M%27Khiin_Grubdoubler_MKHIIN_Portrait_SoD.png/revision/latest?cb=20180924203225" />
@@ -15,16 +15,21 @@ A: M'Khiin is found within the Sewers of the Temple District. Alternatively she 
 
 ### Q: Are there any NPCs you recommend with her? Anyone that she fights with?
 
-A: Haer'Dalis is a good fit - her banters with him strengthen her epilogues. M'Khiin won't leave because of any other companions, but she will find little in common with Korgan or Hexxat. 
+A: Haer'Dalis is a good fit. Her banters with him strengthen her epilogues. M'Khiin won't leave because of any other companions, but she will find little in common with Korgan or Hexxat. 
 
-### Q: What are your current plans for the mod? 
+### Q: What is currently in the mod?
 
-Version 1.0 will add M'Khiin as a joinable NPC with content equivalent to other One-Day NPCs. 
-* She banters with vanilla NPCs. 
-* She comments on essential events. E.g. Tree of Life, Spellhold. 
-* She interjects during dialogues.
-* She has a few timer-&-scenery based dialogues to complete her short friendship track. 
-* She has one mini quest, **A Goblin in the City**, which consists of two encounters where others object to her presence within Athkatla. 
+* M'Khiin is recruitable in both SOA & TOB. 
+* She has banters with several SOA & TOB companions. 
+* She has some area-&-friendship based talks along with interjections. 
+* A chance to change her alignment. 
+* Her SOA quest starts (but cannot be completed). 
+
+### Q: What are your plans? 
+
+Version 1.0 will add 
+* Completion of her SOA & TOB quests.
+* The missing friendship talks & NPC banters. 
 
 ### Q: You mentioned alignment changes. What's that about? 
 
@@ -33,6 +38,13 @@ A: M'Khiin is still finding her place within the world. With CHARNAME's encourag
 ### Q: Why does M'Khiin seem out of character?
 
 A: Players have their own interpretations of canon characters. While I think she remains in-character, you may feel differently. I also don't claim to perfectly replicate her speech. If you have any suggestions for improvements, I'd be delighted to hear them / implement them (with thanks and credit). 
+
+### Q: Known bugs?
+
+* M'Khiin's quests aren't fully written or implemented. 
+* Her sprite will always remain locked to a staff (short of me altering items to change her appearance, & adding new sprites, which I'm not willing to tackle yet). 
+* She lacks custom items & her SoD abilities.
+* Outside of that, she should be recruitable and able to function for a gameplay run (despite still missing talks & banters). 
 
 ### CONTRIBUTORS
 
